@@ -1,13 +1,13 @@
 # Mole GUI — build specification
 
-This folder holds **Mole GUI**, a local macOS desktop app that gives the Mole CLI a
+This repository holds **Mole GUI**, a local macOS desktop app that gives the Mole CLI a
 native window with a web UI. The app is a thin host: every operation is an argv
-invocation of the bundled Mole CLI (`gui/build/Mole GUI.app/Contents/Resources/mole-runtime/mole`).
+invocation of the bundled Mole CLI (`build/Mole GUI.app/Contents/Resources/mole-runtime/mole`).
 No business logic is duplicated in the app. The CLI remains the single source of
 truth for safety, whitelists, protection rules, logging and dry-run behavior.
 
-Owner: the Mole maintainer (this checkout). The app is an additive surface under
-`gui/`; it does **not** change CLI behavior, the router, or the product rules in
+Owner: the Mole maintainer (this checkout). The app is an additive surface; it does
+**not** change CLI behavior, the router, or the product rules in the CLI repository's
 `AGENTS.md`. Do not edit any CLI shell code, Go code, tests, or README copies for
 this work.
 
@@ -24,7 +24,7 @@ this work.
 ## Non-goals
 
 - No menu bar agent, background monitor, notifications, scheduler, or auto-clean.
-- No CLI feature parity work; no new CLI flags; no changes outside `gui/`.
+- No CLI feature parity work; no new CLI flags; no changes outside this repository.
 - No network access from the app or the web view. No remote assets, no telemetry.
 - No app notarization or distribution to other Macs in this iteration.
 - No editing of whitelist files from the GUI in v1 (use `mo clean --whitelist` in Terminal;
@@ -54,13 +54,13 @@ Mole GUI.app/Contents/
 
 | Path | Owner |
 | --- | --- |
-| `gui/app/MoleGUI/*.swift`, `gui/build.sh`, `gui/app/Info.plist`, `gui/tools/snapshot-web.sh`, `Makefile`, `.gitignore` | Lead |
-| `gui/app/web/index.html`, `css/styles.css`, `js/app.js`, `js/bridge.js`, `js/ui.js`, `js/icons.js`, `js/parsers.js`, `js/mock.js`, `js/screens/dashboard.js` | ui-core |
-| `gui/app/web/js/screens/clean.js`, `js/screens/optimize.js` | ui-clean |
-| `gui/app/web/js/screens/uninstall.js`, `analyze.js`, `history.js`, `settings.js`, `reclaim.js` | ui-data |
-| `gui/CONTRACT.md`, `gui/fixtures/**`, `gui/tests/**` | cli-contract |
-| `gui/tools/icon.swift`, `gui/install.sh`, `gui/README.md` | packaging |
-| `gui/tools/snapshot-web.sh`, integration fixes | Lead |
+| `app/MoleGUI/*.swift`, `build.sh`, `app/Info.plist`, `tools/snapshot-web.sh`, `mole-env.sh`, `tools/fetch-mole.sh`, `.gitignore` | Lead |
+| `app/web/index.html`, `css/styles.css`, `js/app.js`, `js/bridge.js`, `js/ui.js`, `js/icons.js`, `js/parsers.js`, `js/mock.js`, `js/screens/dashboard.js` | ui-core |
+| `app/web/js/screens/clean.js`, `js/screens/optimize.js` | ui-clean |
+| `app/web/js/screens/uninstall.js`, `analyze.js`, `history.js`, `settings.js`, `reclaim.js` | ui-data |
+| `CONTRACT.md`, `fixtures/**`, `tests/**` | cli-contract |
+| `tools/icon.swift`, `install.sh`, `README.md` | packaging |
+| `tools/snapshot-web.sh`, integration fixes | Lead |
 
 `index.html` is owned by ui-core and **must pre-load every screen script** listed above,
 even if a file is still empty during development. Empty/missing modules must not break
@@ -163,7 +163,7 @@ simultaneously because the router unmounts the previous screen and cancels it.
 
 The web UI must never ask for the password itself.
 
-## Data contracts (authoritative details in gui/CONTRACT.md)
+## Data contracts (authoritative details in CONTRACT.md)
 
 Commands used by the GUI (arg arrays; always run the bundled CLI):
 
@@ -184,7 +184,7 @@ Commands used by the GUI (arg arrays; always run the bundled CLI):
 | analyze | `['analyze', '--json', path]` |
 | history | `['history', '--json', '--limit', '100']` |
 
-Real sample outputs live in `gui/fixtures/`. Parsers must be defensive: any
+Real sample outputs live in `fixtures/`. Parsers must be defensive: any
 unexpected shape degrades to the raw log panel instead of throwing.
 
 Key preview summary (clean):
@@ -347,34 +347,34 @@ contain mock-only branches** beyond reading `ctx.scenario`.
 ## Build and verify
 
 ```bash
-# build the CLI Go helpers first (needed by the bundled runtime)
-make build
+# fetch the Mole CLI sources the app bundles (first build only)
+bash tools/fetch-mole.sh
 
-# build the app  -> gui/build/Mole GUI.app
-bash gui/build.sh
+# build the app  -> build/Mole GUI.app
+bash build.sh
 
 # install to /Applications and launch
-bash gui/install.sh
+bash install.sh
 
 # headless smoke tests (no GUI session needed)
-"gui/build/Mole GUI.app/Contents/MacOS/MoleGUI" --self-test
-"gui/build/Mole GUI.app/Contents/MacOS/MoleGUI" --exec --version   # runs bundled CLI
-"gui/build/Mole GUI.app/Contents/MacOS/MoleGUI" --webview-check --snapshot /tmp/wk.png
-"gui/build/Mole GUI.app/Contents/MacOS/MoleGUI" --job-test status --json
+"build/Mole GUI.app/Contents/MacOS/MoleGUI" --self-test
+"build/Mole GUI.app/Contents/MacOS/MoleGUI" --exec --version   # runs bundled CLI
+"build/Mole GUI.app/Contents/MacOS/MoleGUI" --webview-check --snapshot /tmp/wk.png
+"build/Mole GUI.app/Contents/MacOS/MoleGUI" --job-test status --json
 
 # web UI snapshots via Chrome headless
-bash gui/tools/snapshot-web.sh          # -> gui/build/snapshots/*.png
+bash tools/snapshot-web.sh          # -> build/snapshots/*.png
 ```
 
 Required checks before reporting done:
 
-1. `bash gui/build.sh` succeeds; app bundle contains `web/` and `mole-runtime/`.
+1. `bash build.sh` succeeds; app bundle contains `web/` and `mole-runtime/`.
 2. `--self-test` prints `"ok": true` with a resolved CLI version.
 3. `--exec --version` prints the CLI version.
-4. `bash gui/tools/snapshot-web.sh` produces a non-blank PNG for every screen/scenario.
-5. `node gui/tests/run.js` passes (parsers + mock bridge).
-6. No shellcheck/shfmt regressions: `./scripts/check.sh --no-format` may skip GUI shell
-   files but `gui/build.sh`/`gui/install.sh` must pass `bash -n` and `shfmt -d`.
+4. `bash tools/snapshot-web.sh` produces a non-blank PNG for every screen/scenario.
+5. `node tests/run.js` passes (parsers + mock bridge).
+6. No shellcheck/shfmt regressions: `build.sh`/`install.sh`/`mole-env.sh`/`tools/fetch-mole.sh`
+   must pass `bash -n` and `shfmt -d`.
 7. Manual code review for argv injection, password handling, and cancel/cleanup paths.
 
 ## Safety rules for this work

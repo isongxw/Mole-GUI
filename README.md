@@ -44,14 +44,33 @@
 
 ## 仓库布局
 
-本仓库是 [Mole CLI](https://github.com/tw93/Mole) 仓库中 `gui/` 目录的源码，CLI 仓库通过 git submodule 引用它：
+本仓库是 **Mole GUI** 的完整源码，是一个独立仓库。两种用法：
 
 ```bash
-# 在 Mole 仓库根目录
+# 1) 独立 clone（推荐给只想装 GUI 的人）
+git clone https://github.com/isongxw/Mole-GUI.git
+cd Mole-GUI
+bash build.sh      # 首次构建会拉取 Mole CLI 源码到 .cache/mole
+bash install.sh    # 安装到 /Applications 并启动
+
+# 2) 作为 Mole CLI 仓库的子模块（CLI 仓库用 git submodule 引用本仓库）
 git submodule update --init --recursive
 ```
 
-**本仓库必须签出到 `<Mole 仓库根>/gui`。** `build.sh` / `install.sh` 把上级目录当作 Mole 仓库根（读取 `mole`、`lib/`、`bin/` 并打包内置 CLI 运行时），所以单独 clone 到别的位置无法构建。文中的相对链接（`../AGENTS.md`、`gui/...`）同样按这一布局书写。
+**GUI 是 CLI 的外壳，不是它的替代品。** 每个动作都是一次 argv 形式的 CLI 调用，所以构建需要 Mole CLI 源码（`mole`、`mo`、`lib/`、`bin/`）。构建脚本按下面的顺序找它：
+
+1. 环境变量 `MOLE_CLI_ROOT` 指定的目录；
+2. **本仓库的上一级目录**——子模块布局 `<Mole 仓库根>/gui`，上一级就是 CLI 仓库，直接用它，不额外下载；
+3. `.cache/mole`——独立 clone 时由 `tools/fetch-mole.sh` 拉取的固定版本 CLI 源码（默认最新正式版 `V<x.y.z>`，Windows CLI 的 `V<x.y.z>-windows` 标签是另一个产品，不参与解析）。
+
+第 3 步的拉取默认在首次构建时自动发生，也可以显式执行、换版本或关掉：
+
+```bash
+bash tools/fetch-mole.sh              # 拉取最新正式版
+bash tools/fetch-mole.sh --ref main   # 拉取指定分支或标签
+bash tools/fetch-mole.sh --update     # 重新解析到最新正式版
+MOLE_CLI_AUTO_FETCH=0 bash build.sh   # 缺少 CLI 源码时直接报错，不自动下载
+```
 
 ## 安装
 
@@ -60,23 +79,23 @@ git submodule update --init --recursive
 - macOS 13（Ventura）或更新版本
 - Apple Silicon（arm64）Mac，本轮只构建 arm64
 - 命令行工具（Command Line Tools）：`xcode-select --install`。无需完整 Xcode
-- 构建使用 `make`、`go`（Go 辅助程序）、`swiftc`、`iconutil`、`codesign`；后三者来自 Command Line Tools
+- Go 工具链（编译内置 CLI 的 Go 辅助程序 `status-go` / `analyze-go`）
+- 网络（仅首次构建：拉取 Mole CLI 源码和 Go 模块；之后构建离线可用）
 
 ```bash
-# 在仓库根目录执行
-make build          # 构建 Go 辅助程序（内置 CLI 运行时会用到）
-bash gui/build.sh   # 产出 gui/build/Mole GUI.app
-bash gui/install.sh # 安装到 /Applications 并启动
+# 在本仓库根目录执行
+bash build.sh    # 产出 build/Mole GUI.app
+bash install.sh  # 安装到 /Applications 并启动
 ```
 
-`bash gui/install.sh` 会做这些事：
+`bash install.sh` 会做这些事：
 
-1. 如果 `gui/build/Mole GUI.app` 不存在，自动执行 `bash gui/build.sh`；build.sh 在 Go 辅助程序（`bin/status-go`、`bin/analyze-go`）缺失时会自动执行 `make build`（需要 Go 工具链与模块下载）。
+1. 如果 `build/Mole GUI.app` 不存在，自动执行 `bash build.sh`；build.sh 在 Go 辅助程序（`bin/status-go`、`bin/analyze-go`）缺失时会在 CLI 源码目录里执行 `make build`（需要 Go 工具链与模块下载）。
 2. 如果 Mole GUI 正在运行，先优雅退出；超时后用 `pkill -x MoleGUI` 精确结束同名进程。
 3. 只在确认目标恰好是 `/Applications/Mole GUI.app` 之后才移除旧 bundle，再用 `ditto` 复制新构建。
 4. 校验 `Info.plist`（bundle id、可执行文件名）、可执行权限和 `codesign --verify --deep --strict`，然后 `open` 启动。
 
-脚本**从不在内部调用 sudo**，也拒绝以 root 身份运行（安装到 `/Applications` 不需要 root）。若 `/Applications` 不可写，会提示需要管理员账号或手动执行 `sudo ditto`。重复运行是安全的（幂等）。`bash gui/install.sh --help` 列出全部参数。
+脚本**从不在内部调用 sudo**，也拒绝以 root 身份运行（安装到 `/Applications` 不需要 root）。若 `/Applications` 不可写，会提示需要管理员账号或手动执行 `sudo ditto`。重复运行是安全的（幂等）。`bash install.sh --help` 列出全部参数。
 
 ## 更新
 
@@ -84,9 +103,15 @@ GUI 不是自更新应用，内置 CLI 也不会跟着 `mo update` 更新。更�
 
 ```bash
 git pull
-make build
-bash gui/build.sh
-bash gui/install.sh
+bash build.sh
+bash install.sh
+```
+
+想换内置 CLI 的版本，先更新 `.cache/mole` 再重新构建：
+
+```bash
+bash tools/fetch-mole.sh --update   # 或 --ref <tag>
+bash build.sh && bash install.sh
 ```
 
 安装脚本会自动退出正在运行的旧版本，再把新构建复制到 `/Applications`。
@@ -94,9 +119,9 @@ bash gui/install.sh
 ## 卸载
 
 ```bash
-bash gui/install.sh --uninstall            # 保留 ~/Library/Logs/mole（与 CLI 共享）
-bash gui/install.sh --uninstall --purge-logs  # 连操作日志一起删（会删掉 CLI 历史）
-bash gui/install.sh --uninstall --dry-run  # 只打印计划
+bash install.sh --uninstall            # 保留 ~/Library/Logs/mole（与 CLI 共享）
+bash install.sh --uninstall --purge-logs  # 连操作日志一起删（会删掉 CLI 历史）
+bash install.sh --uninstall --dry-run  # 只打印计划
 ```
 
 卸载会：退出 app、移除 `/Applications/Mole GUI.app`、移除 `~/Library/Application Support/Mole GUI`。默认**保留** `~/Library/Logs/mole/operations.log`，因为它是 Mole CLI 的共享操作日志；`--purge-logs` 才会删除它。Mole CLI 本身不受影响。
@@ -127,7 +152,7 @@ Mole GUI.app/Contents/Resources/mole-runtime/
 ```
 
 - 版本在**构建时**从当前 checkout 打入；侧边栏底部显示内置 CLI 版本和状态点。
-- `mo update` 只更新独立安装的 CLI，**不会**更新 app 内的副本。想升级 GUI 里的 CLI：`git pull && make build && bash gui/build.sh && bash gui/install.sh`。
+- `mo update` 只更新独立安装的 CLI，**不会**更新 app 内的副本。想升级 GUI 里的 CLI：`git pull && bash build.sh && bash install.sh`（内置 CLI 来自 `.cache/mole` 时，先 `bash tools/fetch-mole.sh --update`）。
 - 设置页可选用外部 CLI 路径（`cliPath`），但默认始终使用内置运行时，避免外部 CLI 版本不匹配。
 - 内置 CLI 不可执行或缺失时，界面顶部会显示「CLI 缺失」横幅，提供重新检测、选择外部 CLI 和安装命令。
 
@@ -154,7 +179,7 @@ Mole GUI.app/Contents/Resources/mole-runtime/
    xattr -dr com.apple.quarantine "/Applications/Mole GUI.app"
    ```
 
-3. 仍失败就重新本地构建：`bash gui/build.sh && bash gui/install.sh`。
+3. 仍失败就重新本地构建：`bash build.sh && bash install.sh`。
 
 **清理预览不完整 / 废纸篓大小偏小**
 
@@ -171,8 +196,9 @@ Mole GUI.app/Contents/Resources/mole-runtime/
 **构建失败**
 
 - 先确认 `xcode-select -p` 可用；`swiftc --version` 能输出版本。
-- 先运行 `make build`，再运行 `bash gui/build.sh`。
-- 查看 `bash gui/build.sh` 的输出定位具体步骤。
+- 先确认 CLI 源码就位：`bash tools/fetch-mole.sh`（或把 `MOLE_CLI_ROOT` 指向一个 Mole 仓库）。
+- 再运行 `bash build.sh`。
+- 查看 `bash build.sh` 的输出定位具体步骤。
 
 **日志和配置在哪里**
 
@@ -181,47 +207,51 @@ Mole GUI.app/Contents/Resources/mole-runtime/
 | CLI 操作日志与删除明细（与 CLI 共享，`mo history` 也读取） | `~/Library/Logs/mole/operations.log`、`~/Library/Logs/mole/deletions.log` |
 | GUI 配置（外部 CLI 路径、上次屏幕、欢迎页状态） | `~/Library/Application Support/Mole GUI/` |
 | CLI 配置（白名单、`clean-list.txt` 等，GUI 不修改） | `~/.config/mole/` |
-| 构建产物 | `gui/build/Mole GUI.app`、`gui/build/AppIcon.icns` |
+| 构建产物 | `build/Mole GUI.app`、`build/AppIcon.icns` |
 
 **卸载后还有残留？**
 
-默认只保留 `~/Library/Logs/mole`（CLI 共享日志）。要连日志一起清掉：`bash gui/install.sh --uninstall --purge-logs`。
+默认只保留 `~/Library/Logs/mole`（CLI 共享日志）。要连日志一起清掉：`bash install.sh --uninstall --purge-logs`。
 
 ## 开发
 
-- 规格与契约：[`gui/SPEC.md`](./SPEC.md) 是强制契约；CLI 输出契约由 `gui/CONTRACT.md` 维护（存在时一并阅读）。
-- 文件所有权见 SPEC 的「File ownership」表。`gui/install.sh`、`gui/README.md`、`gui/tools/icon.swift` 属于 packaging/文档；不要在没有约定的情况下改别人的文件。
+- 规格与契约：[`SPEC.md`](./SPEC.md) 是强制契约；CLI 输出契约由 `CONTRACT.md` 维护（存在时一并阅读）。
+- 文件所有权见 SPEC 的「File ownership」表。`install.sh`、`README.md`、`tools/icon.swift` 属于 packaging/文档；不要在没有约定的情况下改别人的文件。
 
-常用命令（仓库根目录）：
+常用命令（本仓库根目录）：
 
 ```bash
-make build                                   # Go 辅助程序
-bash gui/build.sh                            # 构建 app
-"gui/build/Mole GUI.app/Contents/MacOS/MoleGUI" --self-test
-"gui/build/Mole GUI.app/Contents/MacOS/MoleGUI" --exec --version
-bash gui/tools/verify.sh                     # 全量验证：构建 + 原生自检 + 真实 CLI + 网页快照 + 测试
-bash gui/tools/snapshot-web.sh               # 仅 Chrome headless 网页快照
-node gui/tests/run.js                        # 解析器与 mock bridge 测试
-bash gui/tests/privileged_argv_test.sh       # 管理员权限任务启动参数回归测试（不弹密码框）
+bash tools/fetch-mole.sh                   # 拉取 Mole CLI 源码到 .cache/mole（构建前置）
+bash build.sh                               # 构建 app（Go 辅助程序在缺失时自动编译）
+"build/Mole GUI.app/Contents/MacOS/MoleGUI" --self-test
+"build/Mole GUI.app/Contents/MacOS/MoleGUI" --exec --version
+bash tools/verify.sh                     # 全量验证：构建 + 原生自检 + 真实 CLI + 网页快照 + 测试
+bash tools/snapshot-web.sh               # 仅 Chrome headless 网页快照
+node tests/run.js                        # 解析器与 mock bridge 测试
+bash tests/privileged_argv_test.sh       # 管理员权限任务启动参数回归测试（不弹密码框）
 
 # 真实桥接 + 内置 CLI 的无窗口端到端检查（渲染真实 status 数据并截图）
-"gui/build/Mole GUI.app/Contents/MacOS/MoleGUI" --webview-check --live --snapshot /tmp/live.png
+"build/Mole GUI.app/Contents/MacOS/MoleGUI" --webview-check --live --snapshot /tmp/live.png
 
-bash gui/install.sh --dry-run                # 预览安装动作
-bash gui/install.sh --uninstall --dry-run    # 预览卸载动作
+bash install.sh --dry-run                # 预览安装动作
+bash install.sh --uninstall --dry-run    # 预览卸载动作
 
-bash -n gui/install.sh
-shfmt -d -i 4 -ci -sr gui/install.sh         # 安装了 shfmt 时
+bash -n install.sh
+shfmt -d -i 4 -ci -sr install.sh         # 安装了 shfmt 时
 ```
 
 生成应用图标（无参数、无需 GUI 会话）：
 
 ```bash
-/usr/bin/swiftc -O gui/tools/icon.swift -o /tmp/mole-icon-gen && /tmp/mole-icon-gen
-# 输出 gui/build/AppIcon.iconset/ 和 gui/build/AppIcon.icns
+/usr/bin/swiftc -O tools/icon.swift -o /tmp/mole-icon-gen && /tmp/mole-icon-gen
+# 输出 build/AppIcon.iconset/ 和 build/AppIcon.icns
 ```
 
-开发期安全约定：只运行 `--dry-run` / `--list` / `--json` / `--version` 等只读命令；不要在开发过程中真正执行 `mo clean`、`mo uninstall`、`mo optimize`、`mo purge --yes` 或 `mo installer`（除非明确是在测试安装脚本本身）。更完整的安全规则见 [`AGENTS.md`](../AGENTS.md) 的「Critical Safety Rules」。
+开发期安全约定：只运行 `--dry-run` / `--list` / `--json` / `--version` 等只读命令；不要在开发过程中真正执行 `mo clean`、`mo uninstall`、`mo optimize`、`mo purge --yes` 或 `mo installer`（除非明确是在测试安装脚本本身）。更完整的安全规则见 Mole CLI 仓库的 [`AGENTS.md`](https://github.com/tw93/Mole/blob/main/AGENTS.md) 的「Critical Safety Rules」。
+
+## 许可协议
+
+GPL-3.0，与它内置的 [Mole CLI](https://github.com/tw93/Mole) 相同。`build/Mole GUI.app/Contents/Resources/mole-runtime/` 里打包的 CLI 运行时是 Mole CLI 本体（© tw93），按 GPL-3.0 一并分发，详见 [`LICENSE`](./LICENSE)。「Mole」是其权利人的商标；本仓库是独立的配套应用，不是 CLI 的官方发布渠道。
 
 ---
 
@@ -231,21 +261,26 @@ shfmt -d -i 4 -ci -sr gui/install.sh         # 安装了 shfmt 时
 
 - Bundle: `Mole GUI.app` (bundle id `fit.mole.gui`, executable `MoleGUI`), installed to `/Applications`.
 - Screens: dashboard, clean, uninstall, optimize, reclaim (purge / installer hand-off), disk analyze, history, settings.
-- Install (repo root, macOS 13+, Apple Silicon, Command Line Tools):
+- Layout: this repository holds the whole GUI. The Mole CLI sources it bundles are resolved from `$MOLE_CLI_ROOT`, from the parent directory (the submodule layout `<mole-root>/gui`), or from `.cache/mole`, which `bash tools/fetch-mole.sh` fetches at a pinned release tag. Windows CLI tags (`V<x.y.z>-windows`) are a different product and are never resolved here.
+- Install (repo root, macOS 13+, Apple Silicon, Command Line Tools, Go toolchain):
 
   ```bash
-  make build && bash gui/build.sh && bash gui/install.sh
+  bash build.sh && bash install.sh
   ```
 
   The script builds when needed, quits a running instance, replaces the bundle only after verifying the exact path, checks `Info.plist`, the executable and `codesign --verify --deep --strict`, then launches. It never calls sudo; if `/Applications` is not writable it prints an actionable manual command. It is idempotent.
 
-- Update: `git pull && make build && bash gui/build.sh && bash gui/install.sh`.
-- Uninstall: `bash gui/install.sh --uninstall` (keeps the shared CLI operation logs) or `--uninstall --purge-logs`. `--dry-run` previews. The Mole CLI itself is untouched.
+- Update: `git pull && bash build.sh && bash install.sh`.
+- Uninstall: `bash install.sh --uninstall` (keeps the shared CLI operation logs) or `--uninstall --purge-logs`. `--dry-run` previews. The Mole CLI itself is untouched.
 - Safety: always preview (`--dry-run`) and confirm before destructive actions; the GUI only runs documented CLI commands, deletions go through the CLI's Trash routing and protection rules. The admin password prompt is used only for system-level jobs; the password travels over stdin into `sudo -S -v`, is never stored or logged. No network, no telemetry, no background agents.
 - Bundled runtime: the CLI is copied into the app at build time. `mo update` does not update the bundled copy — rebuild the app. Settings can point at an external CLI, but the bundled runtime is the default.
-- Requirements: macOS 13+, Apple Silicon (arm64 build). No full Xcode needed.
+- Requirements: macOS 13+, Apple Silicon (arm64 build). No full Xcode needed. The first build needs network access (CLI sources + Go modules).
 - Limitations: installer cleanup and interactive analyze TUI hand off to Terminal; the app is not notarized (local ad-hoc build only) and must not be distributed.
 - Troubleshooting: Gatekeeper → right-click Open or `xattr -dr com.apple.quarantine "/Applications/Mole GUI.app"`; grant Full Disk Access for complete clean previews and Trash sizing; logs live in `~/Library/Logs/mole`, GUI config in `~/Library/Application Support/Mole GUI`, CLI config in `~/.config/mole`.
-- Development: see [`gui/SPEC.md`](./SPEC.md) for the binding build spec and file ownership; icon generation is `swiftc -O gui/tools/icon.swift -o /tmp/mole-icon-gen && /tmp/mole-icon-gen`.
+- Development: see [`SPEC.md`](./SPEC.md) for the binding build spec and file ownership; icon generation is `swiftc -O tools/icon.swift -o /tmp/mole-icon-gen && /tmp/mole-icon-gen`.
 
 > **Unsigned local build — do not redistribute.** This app is ad-hoc signed and not notarized. It is meant for the machine that built it. Sign and notarize it yourself before sharing.
+
+## License
+
+GPL-3.0, the same license as the [Mole CLI](https://github.com/tw93/Mole) it bundles. The bundled CLI runtime in `build/Mole GUI.app/Contents/Resources/mole-runtime/` is Mole CLI, © tw93, redistributed under GPL-3.0; see [`LICENSE`](./LICENSE). "Mole" is a trademark of its owner — this repository is an independent companion app, not an official release channel of the CLI.

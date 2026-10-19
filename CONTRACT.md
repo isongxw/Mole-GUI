@@ -1,6 +1,6 @@
 # Mole CLI output contract for the GUI
 
-Authority: `gui/SPEC.md` for GUI behavior; this file for every byte the GUI reads from
+Authority: `SPEC.md` for GUI behavior; this file for every byte the GUI reads from
 the bundled CLI. Source of truth is the CLI in this checkout (`./mole`, version
 `1.61.0`), verified on macOS arm64 by the commands recorded in §14. If the GUI and
 this document disagree, the GUI is wrong.
@@ -239,7 +239,7 @@ Shell: /bin/zsh
 - `mole` with an unknown command: stderr two lines
   (`Unknown command: <cmd>` / `Use 'mole --help' for usage information.`), exit 1.
 
-Fixture: `gui/fixtures/version.txt`.
+Fixture: `fixtures/version.txt`.
 
 ---
 
@@ -329,7 +329,7 @@ Notes for the dashboard:
 - `--watch` streams NDJSON snapshots (one object per line); not used by the GUI.
 - Non-TTY stdout without `--json` already emits this same JSON.
 
-Fixture: `gui/fixtures/status.json`.
+Fixture: `fixtures/status.json`.
 
 ---
 
@@ -401,8 +401,8 @@ Parser notes:
 - Text mode (no `--json`) is `Mole History` with `Recent sessions` /
   `Deletion audit` / `Logs` blocks; the GUI does not use it.
 
-Fixtures: `gui/fixtures/history.json` (seeded), `gui/fixtures/history-100.json`
-(100 scrubbed sessions + deletions), `gui/fixtures/history-empty.json`.
+Fixtures: `fixtures/history.json` (seeded), `fixtures/history-100.json`
+(100 scrubbed sessions + deletions), `fixtures/history-empty.json`.
 
 ---
 
@@ -435,8 +435,8 @@ format is **automatically JSON** (an explicit `--json` flag does not exist):
   not use it.
 - Failures: scan failure prints `Error: ...` on stderr and exits `1`.
 
-Fixture: `gui/fixtures/apps.json` (seeded, 12+ rows incl. Homebrew and CJK names),
-`gui/fixtures/apps-single-line.json` (compact variant).
+Fixture: `fixtures/apps.json` (seeded, 12+ rows incl. Homebrew and CJK names),
+`fixtures/apps-single-line.json` (compact variant).
 
 ### 7.2 `uninstall --dry-run names...` (preview)
 
@@ -551,8 +551,8 @@ prompt. Consequence:
 - Verified safe run: `MOLE_TEST_NO_AUTH=1 ./mole uninstall --dry-run Rectangle
   </dev/null` → exit 0, `Uninstall dry run complete`, no deletions.
 
-Fixture: `gui/fixtures/uninstall-dry-run.txt` (scrubbed real output),
-`gui/fixtures/ansi-sample.txt` (raw sequences for `stripAnsi` tests).
+Fixture: `fixtures/uninstall-dry-run.txt` (scrubbed real output),
+`fixtures/ansi-sample.txt` (raw sequences for `stripAnsi` tests).
 
 ---
 
@@ -709,7 +709,7 @@ The GUI may read it behind a "show details" action; lines are
 `--debug` output can be much larger and may contain slow-probe diagnostics
 (e.g. `[TIMEOUT] Perl fallback…`); never parse stderr.
 
-Fixture: `gui/fixtures/clean-preview.txt`.
+Fixture: `fixtures/clean-preview.txt`.
 
 ### 8.2 `clean` (real, privileged)
 
@@ -794,7 +794,7 @@ Grammar:
   shared file lists`) and can flip the exit code to `1`. The GUI must not treat
   a `--debug` optimize exit as a product failure and does not use this flag.
 
-Fixture: `gui/fixtures/optimize-preview.txt`.
+Fixture: `fixtures/optimize-preview.txt`.
 
 ### 9.2 `optimize` (real, privileged)
 
@@ -896,9 +896,9 @@ Estimated space freed: 2.6MB | Items: 2 | Free: 327.13GB
   `Purge requires confirmation. Run mo purge in a terminal, or use --dry-run to preview and --yes to confirm unattended cleanup.`
   This is a refusal, not a crash. With a TTY, ESC/unknown cancels with exit `0`.
 
-Fixtures: `gui/fixtures/purge-preview.txt` (seeded no-candidate),
-`gui/fixtures/purge-preview-artifacts.txt`,
-`gui/fixtures/purge-run-complete.txt`.
+Fixtures: `fixtures/purge-preview.txt` (seeded no-candidate),
+`fixtures/purge-preview-artifacts.txt`,
+`fixtures/purge-run-complete.txt`.
 
 ---
 
@@ -967,14 +967,14 @@ Schema (`cmd/analyze/json.go`; 2-space indent, trailing newline):
 - Trash-move actions are per-item CLI operations; the GUI calls
   `analyze --json` only for reading. A TUI without `--json` must not be spawned.
 
-Fixtures: `gui/fixtures/analyze.json` (seeded sample),
-`gui/fixtures/analyze-empty.json`, `gui/fixtures/analyze-no-large-files.json`.
+Fixtures: `fixtures/analyze.json` (seeded sample),
+`fixtures/analyze-empty.json`, `fixtures/analyze-no-large-files.json`.
 
 ---
 
 ## 13. Parser contracts (web UI)
 
-`gui/app/web/js/parsers.js` must assign `window.MoleParsers` and be loadable as a
+`app/web/js/parsers.js` must assign `window.MoleParsers` and be loadable as a
 plain browser script (no imports, no top-level DOM access). Every function is
 total: it never throws, and on an unexpected shape it returns the documented
 fallback with `ok: false` and the raw text preserved.
@@ -1165,7 +1165,7 @@ above. Contract the tests assert when the file exists:
 - `post('getConfig')` / `post('setConfig',{patch})` → `config_changed`;
 - `post('chooseCLI')` → `cli_changed`; `post('reveal'|'openExternal'|`clipboard`|
   `exportJSON`|`uninstallSelf`|`quit`)` → `toast`/no-op without throwing;
-- scenarios from `gui/SPEC.md` resolve and set `window.__moleSnapshotReady`;
+- scenarios from `SPEC.md` resolve and set `window.__moleSnapshotReady`;
 - unknown actions do not throw.
 
 Mock activation (ui-core/app.js + mock.js): besides `index.html?mock=1`, the
@@ -1180,16 +1180,16 @@ macOS 设置 (Settings) menu can switch screens; `app.js` implements it by routi
 through the screen registry (same path as Cmd+1…8). It is not part of the bridge
 action table and must not run CLI jobs by itself.
 
-If `mock.js` is not present yet, `node gui/tests/run.js` prints a SKIP line and
+If `mock.js` is not present yet, `node tests/run.js` prints a SKIP line and
 exits 0; once present it is asserted like any other contract.
 
 ---
 
 ## 17. Test harness
 
-`node gui/tests/run.js` (plain Node, no dependencies):
+`node tests/run.js` (plain Node, no dependencies):
 
-- loads `gui/app/web/js/parsers.js` in a shim (`global.window = global`, then
+- loads `app/web/js/parsers.js` in a shim (`global.window = global`, then
   `vm.runInThisContext`), failing with a readable diff if any contract function
   or field is missing;
 - unit-tests `stripAnsi`, `formatSize`/`parseSize` round-trips and size edge
