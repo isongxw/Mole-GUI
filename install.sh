@@ -1,10 +1,10 @@
 #!/bin/bash
 # Mole GUI - install, verify and launch the app, or uninstall it.
 #
-#   bash gui/install.sh              build if needed, install to /Applications, launch
-#   bash gui/install.sh --uninstall  quit and remove the app + its GUI config
-#   bash gui/install.sh --dry-run    print what would happen, change nothing
-#   bash gui/install.sh --help       usage
+#   bash install.sh              build if needed, install to /Applications, launch
+#   bash install.sh --uninstall  quit and remove the app + its GUI config
+#   bash install.sh --dry-run    print what would happen, change nothing
+#   bash install.sh --help       usage
 #
 # Safety contract:
 #   - never calls sudo and never asks for a password; if /Applications is not
@@ -37,10 +37,12 @@ readonly RM="/bin/rm"
 readonly ID="/usr/bin/id"
 
 SCRIPT_DIR=$(cd -- "$(/usr/bin/dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
-REPO_ROOT=$(cd -- "${SCRIPT_DIR}/.." && pwd -P)
-readonly SCRIPT_DIR REPO_ROOT
-readonly BUILD_APP="${REPO_ROOT}/gui/build/${APP_NAME}.app"
-readonly BUILD_SCRIPT="${REPO_ROOT}/gui/build.sh"
+readonly SCRIPT_DIR
+readonly BUILD_APP="${SCRIPT_DIR}/build/${APP_NAME}.app"
+readonly BUILD_SCRIPT="${SCRIPT_DIR}/build.sh"
+
+# shellcheck source=mole-env.sh
+source "${SCRIPT_DIR}/mole-env.sh"
 
 DRY_RUN=0
 UNINSTALL=0
@@ -68,9 +70,9 @@ usage() {
 Mole GUI installer
 
 Usage:
-  bash gui/install.sh [--dry-run]
-  bash gui/install.sh --uninstall [--purge-logs] [--dry-run]
-  bash gui/install.sh --help
+  bash install.sh [--dry-run]
+  bash install.sh --uninstall [--purge-logs] [--dry-run]
+  bash install.sh --help
 
 Options:
   --dry-run       Print every planned action without changing anything.
@@ -82,7 +84,7 @@ Options:
   -h, --help      Show this help.
 
 What the install does:
-  1. If gui/build/Mole GUI.app is missing, run: bash gui/build.sh
+  1. If build/Mole GUI.app is missing, run: bash build.sh
   2. Quit a running Mole GUI (AppleScript quit, then SIGTERM to MoleGUI)
   3. Remove the old /Applications/Mole GUI.app only after verifying that exact
      path is a real bundle directory, then copy the fresh build with ditto.
@@ -91,7 +93,7 @@ What the install does:
      ad-hoc signature, then launch the app.
 
 The script never uses sudo. If /Applications is not writable, ask an admin to
-install or copy the bundle manually. See gui/README.md for details.
+install or copy the bundle manually. See README.md for details.
 EOF
 }
 
@@ -180,7 +182,7 @@ plist_value() {
     local plist="${TARGET_APP}/Contents/Info.plist"
     local value
     if ! value=$("$PBUDDY" -c "Print :${key}" "$plist" 2> /dev/null); then
-        die "could not read ${key} from ${plist}. The bundle looks incomplete; rebuild with: bash gui/build.sh"
+        die "could not read ${key} from ${plist}. The bundle looks incomplete; rebuild with: bash build.sh"
     fi
     printf '%s' "$value"
 }
@@ -190,24 +192,24 @@ verify_installed_bundle() {
     local executable="${TARGET_APP}/Contents/MacOS/${EXECUTABLE}"
 
     [ -d "$TARGET_APP" ] || die "installed app is missing: ${TARGET_APP}"
-    [ -f "$plist" ] || die "Info.plist is missing in ${TARGET_APP}; rebuild with: bash gui/build.sh"
+    [ -f "$plist" ] || die "Info.plist is missing in ${TARGET_APP}; rebuild with: bash build.sh"
 
     local bundle_id
     bundle_id=$(plist_value "CFBundleIdentifier")
-    [ "$bundle_id" = "$BUNDLE_ID" ] || die "Info.plist CFBundleIdentifier is '${bundle_id}', expected '${BUNDLE_ID}'. Rebuild with: bash gui/build.sh"
+    [ "$bundle_id" = "$BUNDLE_ID" ] || die "Info.plist CFBundleIdentifier is '${bundle_id}', expected '${BUNDLE_ID}'. Rebuild with: bash build.sh"
 
     local bundle_executable
     bundle_executable=$(plist_value "CFBundleExecutable")
-    [ "$bundle_executable" = "$EXECUTABLE" ] || die "Info.plist CFBundleExecutable is '${bundle_executable}', expected '${EXECUTABLE}'. Rebuild with: bash gui/build.sh"
+    [ "$bundle_executable" = "$EXECUTABLE" ] || die "Info.plist CFBundleExecutable is '${bundle_executable}', expected '${EXECUTABLE}'. Rebuild with: bash build.sh"
 
-    [ -x "$executable" ] || die "${executable} is missing or not executable; rebuild with: bash gui/build.sh"
+    [ -x "$executable" ] || die "${executable} is missing or not executable; rebuild with: bash build.sh"
     say "  Info.plist:   ${BUNDLE_ID} / ${EXECUTABLE}"
     say "  Executable:   ${executable}"
 
     # Bundled runtime sanity: a broken build still installs, but warn so a
     # missing runtime is not mistaken for a working app.
     if [ ! -d "${TARGET_APP}/Contents/Resources/web" ]; then
-        warn "Contents/Resources/web is missing; the window will be empty. Rebuild with: bash gui/build.sh"
+        warn "Contents/Resources/web is missing; the window will be empty. Rebuild with: bash build.sh"
     fi
     if [ ! -x "${TARGET_APP}/Contents/Resources/mole-runtime/mole" ]; then
         warn "the bundled Mole CLI is missing at Contents/Resources/mole-runtime/mole; the app will show the CLI-missing banner."
@@ -217,7 +219,7 @@ verify_installed_bundle() {
     if ! signature_error=$("$CODESIGN" --verify --deep --strict "$TARGET_APP" 2>&1); then
         warn "codesign verification failed for the local ad-hoc build:"
         printf '%s\n' "$signature_error" >&2
-        warn "If macOS refuses to launch it, rebuild with: bash gui/build.sh"
+        warn "If macOS refuses to launch it, rebuild with: bash build.sh"
     else
         say "  Signature:    codesign --verify --deep --strict passed (ad-hoc local build)"
     fi
@@ -225,7 +227,7 @@ verify_installed_bundle() {
 
 install_app() {
     say "Mole GUI installer"
-    say "  repo:   ${REPO_ROOT}"
+    say "  repo:   ${SCRIPT_DIR}"
     say "  target: ${TARGET_APP}"
     if [ "$DRY_RUN" -eq 1 ]; then
         say "  mode:   dry run (nothing will be changed)"
@@ -235,14 +237,14 @@ install_app() {
     if [ -d "$BUILD_APP" ]; then
         say "Using the existing build: ${BUILD_APP}"
     elif [ "$DRY_RUN" -eq 1 ]; then
-        say "[dry-run] ${BUILD_APP} is missing; would run: bash gui/build.sh"
+        say "[dry-run] ${BUILD_APP} is missing; would run: bash build.sh"
     else
         [ -f "$BUILD_SCRIPT" ] || die "${BUILD_SCRIPT} is missing; this checkout cannot build Mole GUI."
-        say "No built app at ${BUILD_APP}; building now (bash gui/build.sh)..."
-        if ! (cd -- "$REPO_ROOT" && bash "$BUILD_SCRIPT"); then
-            die "gui/build.sh failed. Fix the error above, then re-run bash gui/install.sh. gui/README.md documents the build requirements."
+        say "No built app at ${BUILD_APP}; building now (bash build.sh)..."
+        if ! (cd -- "$SCRIPT_DIR" && bash "$BUILD_SCRIPT"); then
+            die "build.sh failed. Fix the error above, then re-run bash install.sh. README.md documents the build requirements."
         fi
-        [ -d "$BUILD_APP" ] || die "gui/build.sh finished but ${BUILD_APP} does not exist; check its output."
+        [ -d "$BUILD_APP" ] || die "build.sh finished but ${BUILD_APP} does not exist; check its output."
         say "Build finished."
     fi
 
@@ -276,7 +278,7 @@ install_app() {
     verify_installed_bundle
     say "Launching ${APP_NAME}..."
     if ! "$OPEN" "$TARGET_APP"; then
-        die "could not launch ${TARGET_APP}. Try opening it from Finder; if macOS blocks it, see the Gatekeeper section in gui/README.md."
+        die "could not launch ${TARGET_APP}. Try opening it from Finder; if macOS blocks it, see the Gatekeeper section in README.md."
     fi
 
     # Confirm the process actually came up. A copy that verifies but never
@@ -374,7 +376,7 @@ uninstall_app() {
         remove_operation_logs
     else
         say "Kept the operation logs (shared with the Mole CLI): ${OPERATION_LOG_DIR}"
-        say "Remove them with: bash gui/install.sh --uninstall --purge-logs"
+        say "Remove them with: bash install.sh --uninstall --purge-logs"
     fi
 
     say ""
@@ -382,7 +384,7 @@ uninstall_app() {
         say "Dry run complete; nothing was changed."
     else
         say "Uninstall complete. The Mole CLI itself was not touched."
-        say "Reinstall with: bash gui/install.sh"
+        say "Reinstall with: bash install.sh"
     fi
 }
 

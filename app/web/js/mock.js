@@ -7,7 +7,7 @@
  *   window.webkit.messageHandlers.mole.postMessage({action, ...})
  *   window.__moleNative(JSON.stringify(event))
  *
- * Fixtures are generated from gui/fixtures/* by the build step; keep them in
+ * Fixtures are generated from fixtures/* by the build step; keep them in
  * sync when the CLI contract changes. Usernames are scrubbed to /Users/example.
  */
 (function () {

@@ -10,18 +10,18 @@
 #   6. parser/bridge unit tests (node) if present
 #   7. headless Chrome snapshots for every screen/scenario
 #
-# Usage: bash gui/tools/verify.sh
+# Usage: bash tools/verify.sh
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
-APP="$ROOT_DIR/gui/build/Mole GUI.app"
+GUI_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+APP="$GUI_DIR/build/Mole GUI.app"
 BIN="$APP/Contents/MacOS/MoleGUI"
-OUT="$ROOT_DIR/gui/build/verify"
+OUT="$GUI_DIR/build/verify"
 failures=0
 
-cd "$ROOT_DIR"
+cd "$GUI_DIR"
 mkdir -p "$OUT"
 
 step() { printf '\n\033[35m▸ %s\033[0m\n' "$*"; }
@@ -32,8 +32,8 @@ fail() {
 }
 
 step "Build"
-if bash gui/build.sh > "$OUT/build.log" 2>&1; then
-    pass "build gui/build/Mole GUI.app"
+if bash build.sh > "$OUT/build.log" 2>&1; then
+    pass "build build/Mole GUI.app"
 else
     fail "build failed (see $OUT/build.log)"
     tail -20 "$OUT/build.log"
@@ -98,7 +98,7 @@ else
 fi
 
 step "Privileged exec path (regression)"
-if bash gui/tests/privileged_argv_test.sh > "$OUT/privileged-argv.log" 2>&1; then
+if bash tests/privileged_argv_test.sh > "$OUT/privileged-argv.log" 2>&1; then
     pass "privileged job execs the CLI with its own argv"
 else
     fail "privileged argv regression (see $OUT/privileged-argv.log)"
@@ -106,19 +106,19 @@ else
 fi
 
 step "Parser and bridge tests"
-if [[ -f "$ROOT_DIR/gui/tests/run.js" ]]; then
-    if node "$ROOT_DIR/gui/tests/run.js" > "$OUT/tests.log" 2>&1; then
-        pass "node gui/tests/run.js"
+if [[ -f "$GUI_DIR/tests/run.js" ]]; then
+    if node "$GUI_DIR/tests/run.js" > "$OUT/tests.log" 2>&1; then
+        pass "node tests/run.js"
     else
         fail "node tests failed (see $OUT/tests.log)"
         tail -30 "$OUT/tests.log"
     fi
 else
-    fail "gui/tests/run.js is missing"
+    fail "tests/run.js is missing"
 fi
 
 step "Web UI snapshots (Chrome headless)"
-if bash gui/tools/snapshot-web.sh > "$OUT/snapshots.log" 2>&1; then
+if bash tools/snapshot-web.sh > "$OUT/snapshots.log" 2>&1; then
     pass "all screen snapshots rendered"
 else
     fail "snapshot run failed (see $OUT/snapshots.log)"

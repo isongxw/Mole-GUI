@@ -2,17 +2,17 @@
 //
 // Standalone AppKit command-line program. No arguments, no network, no GUI session:
 //
-//   swiftc -O gui/tools/icon.swift -o /tmp/mole-icon-gen
+//   swiftc -O tools/icon.swift -o /tmp/mole-icon-gen
 //   /tmp/mole-icon-gen
 //
 // It draws a 1024x1024 master design with Core Graphics (resolution independent),
 // renders each iconset variant natively at its exact pixel size so small sizes stay
-// crisp, writes gui/build/AppIcon.iconset/, and then calls
-// `/usr/bin/iconutil -c icns gui/build/AppIcon.iconset -o gui/build/AppIcon.icns`.
+// crisp, writes build/AppIcon.iconset/, and then calls
+// `/usr/bin/iconutil -c icns build/AppIcon.iconset -o build/AppIcon.icns`.
 //
 // Run it from the repository root (or keep the compiled binary's source path intact);
 // the script locates the repo by walking up from the working directory looking for
-// `gui/SPEC.md`.
+// `SPEC.md`.
 
 import AppKit
 import CoreGraphics
@@ -326,14 +326,13 @@ private func findRepoRoot() -> URL? {
     var seeds: [URL] = [URL(fileURLWithPath: fileManager.currentDirectoryPath)]
     seeds.append(
         URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()   // gui/tools
-            .deletingLastPathComponent()   // gui
+            .deletingLastPathComponent()   // tools
             .deletingLastPathComponent()   // repo root
     )
 
     for var directory in seeds {
         for _ in 0..<8 {
-            if fileManager.fileExists(atPath: directory.appendingPathComponent("gui/SPEC.md").path) {
+            if fileManager.fileExists(atPath: directory.appendingPathComponent("SPEC.md").path) {
                 return directory
             }
             let parent = directory.deletingLastPathComponent()
@@ -345,7 +344,7 @@ private func findRepoRoot() -> URL? {
 }
 
 /// Removes only our own generated iconset before regenerating. The path is resolved
-/// from the repo root and asserted to end in `gui/build/AppIcon.iconset`, so a wrong
+/// from the repo root and asserted to end in `build/AppIcon.iconset`, so a wrong
 /// working directory can never delete anything else.
 private func resetIconsetset(_ iconset: URL) {
     let fileManager = FileManager.default
@@ -413,10 +412,10 @@ private let iconsetSlots: [Iconslot] = [
 let fileManager = FileManager.default
 
 guard let repoRoot = findRepoRoot() else {
-    fail("could not find the Mole repo root; run this from the repo root (needs gui/SPEC.md)")
+    fail("could not find the Mole GUI repo root; run this from the repo root (needs SPEC.md)")
 }
 
-let buildDir = repoRoot.appendingPathComponent("gui/build", isDirectory: true)
+let buildDir = repoRoot.appendingPathComponent("build", isDirectory: true)
 let iconset = buildDir.appendingPathComponent("AppIcon.iconset", isDirectory: true)
 let icns = buildDir.appendingPathComponent("AppIcon.icns")
 

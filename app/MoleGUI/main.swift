@@ -21,7 +21,7 @@ if cliArguments.contains("--help") || cliArguments.contains("-h") {
                                       --live exercises the real bridge + bundled CLI
 
         The app is a thin host: every action runs the bundled Mole CLI in
-        gui/build/Mole GUI.app/Contents/Resources/mole-runtime.
+        build/Mole GUI.app/Contents/Resources/mole-runtime.
         """
     )
     exit(0)
@@ -115,7 +115,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         contentView.addSubview(webView)
 
         // The top 40pt strip is the native window drag area; the web UI keeps
-        // that band free of controls (see gui/SPEC.md).
+        // that band free of controls (see SPEC.md).
         let dragView = DragView(
             frame: NSRect(x: 0, y: contentView.bounds.height - 40, width: contentView.bounds.width, height: 40)
         )
@@ -138,7 +138,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         guard let webDir = AppPaths.webDir else {
             webView.loadHTMLString(
                 "<html><body style=\"background:#0b0a12;color:#f4f2fb;font-family:-apple-system;padding:40px\">"
-                    + "<h2>Web 资源缺失</h2><p>请重新运行 <code>bash gui/build.sh</code> 构建应用。</p></body></html>",
+                    + "<h2>Web 资源缺失</h2><p>请重新运行 <code>bash build.sh</code> 构建应用。</p></body></html>",
                 baseURL: nil
             )
             return
@@ -147,7 +147,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         guard FileManager.default.fileExists(atPath: index.path) else {
             webView.loadHTMLString(
                 "<html><body style=\"background:#0b0a12;color:#f4f2fb;font-family:-apple-system;padding:40px\">"
-                    + "<h2>index.html 缺失</h2><p>请重新运行 <code>bash gui/build.sh</code>。</p></body></html>",
+                    + "<h2>index.html 缺失</h2><p>请重新运行 <code>bash build.sh</code>。</p></body></html>",
                 baseURL: nil
             )
             return

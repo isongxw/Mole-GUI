@@ -1,6 +1,6 @@
 /*
  * Mole GUI — shared UI helpers (design system).
- * Implements the MoleUI contract from gui/SPEC.md exactly.
+ * Implements the MoleUI contract from SPEC.md exactly.
  * Only this file builds markup from UI-authored strings; CLI output must go
  * through textContent (log panels, tables) so it can never inject DOM.
  */

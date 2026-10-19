@@ -1,6 +1,6 @@
 #!/bin/bash
 # Render every Mole GUI screen in mock mode with headless Chrome.
-# Output: gui/build/snapshots/<name>.png
+# Output: build/snapshots/<name>.png
 #
 # This is a development/verification tool. It does not need a GUI session and
 # never talks to the real Mole CLI.
@@ -8,9 +8,9 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
-WEB_DIR="$ROOT_DIR/gui/app/web"
-OUT_DIR="$ROOT_DIR/gui/build/snapshots"
+GUI_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+WEB_DIR="$GUI_DIR/app/web"
+OUT_DIR="$GUI_DIR/build/snapshots"
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 WIDTH=1440
 HEIGHT=900
@@ -21,7 +21,7 @@ BUDGET=8000
     exit 1
 }
 [[ -f "$WEB_DIR/index.html" ]] || {
-    echo "gui/app/web/index.html is missing" >&2
+    echo "app/web/index.html is missing" >&2
     exit 1
 }
 

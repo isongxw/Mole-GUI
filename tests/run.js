@@ -2,11 +2,11 @@
 /*
  * Mole GUI — CLI contract tests.
  *
- * Plain Node, no dependencies:   node gui/tests/run.js
+ * Plain Node, no dependencies:   node tests/run.js
  *
- * Loads gui/app/web/js/parsers.js in a minimal browser shim and asserts the
- * parser contract documented in gui/CONTRACT.md against gui/fixtures/*.
- * Also checks the mock bridge contract in gui/app/web/js/mock.js when present.
+ * Loads app/web/js/parsers.js in a minimal browser shim and asserts the
+ * parser contract documented in CONTRACT.md against fixtures/*.
+ * Also checks the mock bridge contract in app/web/js/mock.js when present.
  *
  * Exit code 0 = all contract checks passed. Nonzero = at least one failure,
  * printed with an expected/actual diff. Do not weaken this file to hide a
@@ -102,7 +102,7 @@ function formatBytes(bytes) {
 
 function loadParsers() {
   assert(fs.existsSync(PARSERS_PATH),
-    'missing gui/app/web/js/parsers.js — the UI must ship a MoleParsers module (contract §13)');
+    'missing app/web/js/parsers.js — the UI must ship a MoleParsers module (contract §13)');
   const source = fs.readFileSync(PARSERS_PATH, 'utf8');
   global.window = global;
   vm.runInThisContext(source, { filename: PARSERS_PATH });
@@ -548,7 +548,7 @@ function makeDomShim() {
 async function testMockBridge() {
   group('mock bridge (CONTRACT §16)');
   if (!fs.existsSync(MOCK_PATH)) {
-    process.stdout.write('  SKIP  gui/app/web/js/mock.js not present yet (mock bridge contract not checked)\n');
+    process.stdout.write('  SKIP  app/web/js/mock.js not present yet (mock bridge contract not checked)\n');
     return;
   }
   const outcomes = [];
@@ -558,7 +558,7 @@ async function testMockBridge() {
     global.document = global.document || makeDomShim();
     global.location = {
       search: '?mock=1&screen=dashboard&scenario=default',
-      hash: '', href: 'file:///gui/index.html?mock=1', pathname: '/gui/index.html'
+      hash: '', href: 'file:///index.html?mock=1', pathname: '/index.html'
     };
     global.__MOLE_MOCK__ = true;
     global.__MOLE_MOCK_SCREEN__ = 'dashboard';

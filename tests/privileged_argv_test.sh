@@ -14,12 +14,20 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+GUI_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 WORK_DIR="$(mktemp -d)"
 trap 'rm -rf "$WORK_DIR"' EXIT # SAFE: own mktemp directory
 
-cp "$ROOT_DIR/gui/app/MoleGUI/Config.swift" "$WORK_DIR/"
-cp "$ROOT_DIR/gui/app/MoleGUI/ProcessRunner.swift" "$WORK_DIR/"
+# The test drives the real CLI, so it needs the CLI sources the app bundles.
+# shellcheck source=../mole-env.sh
+source "$GUI_DIR/mole-env.sh"
+if ! CLI_ROOT="$(mole_cli_root_or_fetch)"; then
+    echo "FAIL: the Mole CLI sources were not found; run: bash tools/fetch-mole.sh" >&2
+    exit 1
+fi
+
+cp "$GUI_DIR/app/MoleGUI/Config.swift" "$WORK_DIR/"
+cp "$GUI_DIR/app/MoleGUI/ProcessRunner.swift" "$WORK_DIR/"
 
 if ! grep -q '/usr/bin/sudo' "$WORK_DIR/ProcessRunner.swift"; then
     echo "FAIL: auth wrapper no longer calls /usr/bin/sudo; update this test" >&2
@@ -75,7 +83,7 @@ swiftc -O -swift-version 5 \
     -framework Cocoa -o "$WORK_DIR/privileged-argv-test"
 
 set +e
-MOLE_GUI_CLI="$ROOT_DIR/mole" \
+MOLE_GUI_CLI="$CLI_ROOT/mole" \
     MOLE_TEST_NO_AUTH=1 \
     "$WORK_DIR/privileged-argv-test" > "$WORK_DIR/out.txt" 2> "$WORK_DIR/err.txt"
 status=$?

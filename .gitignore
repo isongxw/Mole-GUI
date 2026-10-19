@@ -1,5 +1,8 @@
 # Build output
 build/
 
+# Fetched Mole CLI sources (tools/fetch-mole.sh)
+.cache/
+
 # macOS
 .DS_Store

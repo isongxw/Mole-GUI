@@ -1,7 +1,7 @@
 /*
  * Mole GUI — defensive parsers for Mole CLI output.
  *
- * Contract: gui/CONTRACT.md §13 (enforced by gui/tests/run.js). Every function
+ * Contract: CONTRACT.md §13 (enforced by tests/run.js). Every function
  * is total: it never throws, keeps `raw`, and degrades to ok:false / null.
  *
  * Note on sizes: CLI human labels are decimal (46.83GB = 46.83e9), but
