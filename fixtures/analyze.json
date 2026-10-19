@@ -1,0 +1,23 @@
+{
+  "scan_status": "complete",
+  "path": "/tmp/mole-gui-probe/sample",
+  "overview": false,
+  "entries": [
+    {
+      "scan_status": "complete",
+      "name": "a",
+      "path": "/tmp/mole-gui-probe/sample/a",
+      "size": 1048576,
+      "is_dir": true
+    }
+  ],
+  "large_files": [
+    {
+      "name": "big.bin",
+      "path": "/tmp/mole-gui-probe/sample/a/big.bin",
+      "size": 1048576
+    }
+  ],
+  "total_size": 1048576,
+  "total_files": 1
+}

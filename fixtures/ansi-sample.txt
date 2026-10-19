@@ -1,0 +1,10 @@
+[2J[Hclear-screen followed by text
+[1;35m➤ Developer tools[0m
+  [1;32m✓[0m npm cache · 1.36GB dry
+spinner frame[2Knext line after spinner
+]0;Mole GUIOSC title terminated by BEL
+]8;;https://example.com\link text]8;;\OSC 8 link
+(Bcharset reset
+7save cursor8restore cursor
+C1: 31mred0m
+plain ✓ 中文宽度 · 46.83GB+

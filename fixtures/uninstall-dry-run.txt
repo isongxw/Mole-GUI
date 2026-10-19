@@ -1,0 +1,26 @@
+→ DRY RUN MODE, No app files or settings will be modified
+
+◎ Matched 1 app(s):
+1. Rectangle  7.4MB  |  Last: 1m ago
+
+
+Files to be removed:
+◎ Rectangle , 7.4MB
+  ✓ /Applications/Rectangle.app , 7.4MB
+  ✓ ~/Library/Caches/com.knollsoft.Rectangle , 4KB
+
+Personal data kept:
+  ⊙ ~/Library/WebKit/com.knollsoft.Rectangle
+  ⊙ ~/Library/HTTPStorages/com.knollsoft.Rectangle
+  ⊙ /var/folders/xx/example/C/C/com.knollsoft.Rectangle
+  ⊙ ~/Library/Preferences/com.knollsoft.Rectangle.plist
+
+D choose personal data
+➤ Remove 1 app, 7.4MB [Running]  Enter confirm, ESC cancel: 
+
+======================================================================
+Uninstall dry run complete
+Would remove 1 app, would free 7.4MB: Rectangle
+======================================================================
+
+[DRY RUN] Would refresh LaunchServices and update Dock entries

@@ -1,0 +1,6 @@
+$ HOME=/tmp/mole-purge-sandbox/home ./mole purge </dev/null
+exit code: 1
+--- stdout ---
+Purge Project Artifacts
+--- stderr ---
+Purge requires confirmation. Run mo purge in a terminal, or use --dry-run to preview and --yes to confirm unattended cleanup.

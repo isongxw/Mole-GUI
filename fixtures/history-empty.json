@@ -1,0 +1,13 @@
+{
+  "logs": {
+    "operations": "/Users/example/Library/Logs/mole/operations.log",
+    "deletions": "/Users/example/Library/Logs/mole/deletions.log"
+  },
+  "limit": 20,
+  "sessions": [
+
+  ],
+  "deletions": [
+
+  ]
+}

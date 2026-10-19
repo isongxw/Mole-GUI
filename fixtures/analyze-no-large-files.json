@@ -1,0 +1,32 @@
+{
+  "scan_status": "complete",
+  "path": "/tmp/mole-gui-probe/sample",
+  "overview": false,
+  "entries": [
+    {
+      "scan_status": "complete",
+      "name": "big.bin",
+      "path": "/tmp/mole-gui-probe/sample/big.bin",
+      "size": 65536,
+      "is_dir": false,
+      "last_access": "2026-10-17T13:51:38Z"
+    },
+    {
+      "scan_status": "complete",
+      "name": "sub",
+      "path": "/tmp/mole-gui-probe/sample/sub",
+      "size": 32768,
+      "is_dir": true
+    },
+    {
+      "scan_status": "complete",
+      "name": "a.txt",
+      "path": "/tmp/mole-gui-probe/sample/a.txt",
+      "size": 5,
+      "is_dir": false,
+      "last_access": "2026-10-17T13:51:38Z"
+    }
+  ],
+  "total_size": 98309,
+  "total_files": 3
+}

@@ -1,0 +1,2051 @@
+{
+  "logs": {
+    "operations": "/Users/example/Library/Logs/mole/operations.log",
+    "deletions": "/Users/example/Library/Logs/mole/deletions.log"
+  },
+  "limit": 100,
+  "sessions": [
+    {
+      "command": "clean",
+      "run_id": "20261017210010000",
+      "attribution": "ambiguous",
+      "started_at": "2026-10-17 21:00:00",
+      "ended_at": "",
+      "items": 0,
+      "size": "0B",
+      "operation_count": 0,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "20261017210710037",
+      "attribution": "run",
+      "started_at": "2026-10-17 20:53:00",
+      "ended_at": "2026-10-17 20:53:04",
+      "items": 7,
+      "size": "4KB",
+      "operation_count": 3,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 1,
+        "failed": 0,
+        "rebuilt": 1,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "20261017211410074",
+      "attribution": "run",
+      "started_at": "2026-10-17 20:46:00",
+      "ended_at": "2026-10-17 20:46:05",
+      "items": 14,
+      "size": "172KB",
+      "operation_count": 6,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 20:39:00",
+      "ended_at": "2026-10-17 20:39:06",
+      "items": 21,
+      "size": "1.5MB",
+      "operation_count": 9,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "installer",
+      "run_id": "20261017212810148",
+      "attribution": "run",
+      "started_at": "2026-10-17 20:32:00",
+      "ended_at": "2026-10-17 20:32:07",
+      "items": 28,
+      "size": "24.5MB",
+      "operation_count": 12,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "update",
+      "run_id": "20261017213510185",
+      "attribution": "run",
+      "started_at": "2026-10-17 20:25:00",
+      "ended_at": "2026-10-17 20:25:08",
+      "items": 35,
+      "size": "46.83GB",
+      "operation_count": 15,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "touchid",
+      "run_id": "20261017214210222",
+      "attribution": "run",
+      "started_at": "2026-10-17 20:18:00",
+      "ended_at": "2026-10-17 20:18:09",
+      "items": 42,
+      "size": "522.2MB",
+      "operation_count": 18,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "clean-dry-run",
+      "run_id": "20261017214910259",
+      "attribution": "run",
+      "started_at": "2026-10-17 20:11:00",
+      "ended_at": "2026-10-17 20:11:10",
+      "items": 91,
+      "size": "2.22GB",
+      "operation_count": 21,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 91,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize-dry-run",
+      "run_id": "20261017215610296",
+      "attribution": "run",
+      "started_at": "2026-10-17 20:04:00",
+      "ended_at": "2026-10-17 20:04:11",
+      "items": 104,
+      "size": "0B",
+      "operation_count": 24,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 104,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge-dry-run",
+      "run_id": "20261017210310333",
+      "attribution": "run",
+      "started_at": "2026-10-17 19:57:00",
+      "ended_at": "2026-10-17 19:57:12",
+      "items": 117,
+      "size": "4KB",
+      "operation_count": 27,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 117,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall-dry-run",
+      "run_id": "20261017211010370",
+      "attribution": "run",
+      "started_at": "2026-10-17 19:50:00",
+      "ended_at": "2026-10-17 19:50:13",
+      "items": 130,
+      "size": "172KB",
+      "operation_count": 30,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 130,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017211710407",
+      "attribution": "run",
+      "started_at": "2026-10-17 19:43:00",
+      "ended_at": "",
+      "items": 77,
+      "size": "1.5MB",
+      "operation_count": 33,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 17,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017212410444",
+      "attribution": "run",
+      "started_at": "2026-10-17 19:36:00",
+      "ended_at": "2026-10-17 19:36:15",
+      "items": 84,
+      "size": "24.5MB",
+      "operation_count": 36,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 24,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "20261017213110481",
+      "attribution": "run",
+      "started_at": "2026-10-17 19:29:00",
+      "ended_at": "2026-10-17 19:29:16",
+      "items": 91,
+      "size": "46.83GB",
+      "operation_count": 39,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 3,
+        "failed": 0,
+        "rebuilt": 4,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "20261017213810518",
+      "attribution": "run",
+      "started_at": "2026-10-17 19:22:00",
+      "ended_at": "2026-10-17 19:22:17",
+      "items": 98,
+      "size": "522.2MB",
+      "operation_count": 42,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "20261017214510555",
+      "attribution": "run",
+      "started_at": "2026-10-17 19:15:00",
+      "ended_at": "2026-10-17 19:15:18",
+      "items": 105,
+      "size": "2.22GB",
+      "operation_count": 45,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "installer",
+      "run_id": "20261017215210592",
+      "attribution": "run",
+      "started_at": "2026-10-17 19:08:00",
+      "ended_at": "2026-10-17 19:08:19",
+      "items": 112,
+      "size": "0B",
+      "operation_count": 48,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "update",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 19:01:00",
+      "ended_at": "2026-10-17 19:01:20",
+      "items": 119,
+      "size": "4KB",
+      "operation_count": 51,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "touchid",
+      "run_id": "20261017210610666",
+      "attribution": "run",
+      "started_at": "2026-10-17 18:54:00",
+      "ended_at": "2026-10-17 18:54:21",
+      "items": 6,
+      "size": "172KB",
+      "operation_count": 54,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "clean-dry-run",
+      "run_id": "20261017211310703",
+      "attribution": "run",
+      "started_at": "2026-10-17 18:47:00",
+      "ended_at": "2026-10-17 18:47:22",
+      "items": 247,
+      "size": "1.5MB",
+      "operation_count": 57,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 247,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize-dry-run",
+      "run_id": "20261017212010740",
+      "attribution": "run",
+      "started_at": "2026-10-17 18:40:00",
+      "ended_at": "2026-10-17 18:40:23",
+      "items": 260,
+      "size": "24.5MB",
+      "operation_count": 60,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 260,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge-dry-run",
+      "run_id": "20261017212710777",
+      "attribution": "run",
+      "started_at": "2026-10-17 18:33:00",
+      "ended_at": "2026-10-17 18:33:24",
+      "items": 273,
+      "size": "46.83GB",
+      "operation_count": 63,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 273,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall-dry-run",
+      "run_id": "20261017213410814",
+      "attribution": "run",
+      "started_at": "2026-10-17 18:26:00",
+      "ended_at": "",
+      "items": 286,
+      "size": "522.2MB",
+      "operation_count": 66,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 286,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017214110851",
+      "attribution": "run",
+      "started_at": "2026-10-17 18:19:00",
+      "ended_at": "2026-10-17 18:19:26",
+      "items": 41,
+      "size": "2.22GB",
+      "operation_count": 69,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 41,
+        "trashed": 6,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 18:12:00",
+      "ended_at": "2026-10-17 18:12:27",
+      "items": 48,
+      "size": "0B",
+      "operation_count": 72,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 48,
+        "trashed": 6,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "20261017215510925",
+      "attribution": "run",
+      "started_at": "2026-10-17 18:05:00",
+      "ended_at": "2026-10-17 18:05:28",
+      "items": 55,
+      "size": "4KB",
+      "operation_count": 75,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 7,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "20261017210210962",
+      "attribution": "run",
+      "started_at": "2026-10-17 17:58:00",
+      "ended_at": "2026-10-17 17:58:29",
+      "items": 62,
+      "size": "172KB",
+      "operation_count": 78,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "20261017210910999",
+      "attribution": "run",
+      "started_at": "2026-10-17 17:51:00",
+      "ended_at": "2026-10-17 17:51:30",
+      "items": 69,
+      "size": "1.5MB",
+      "operation_count": 81,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "installer",
+      "run_id": "20261017211611036",
+      "attribution": "run",
+      "started_at": "2026-10-17 17:44:00",
+      "ended_at": "2026-10-17 17:44:31",
+      "items": 76,
+      "size": "24.5MB",
+      "operation_count": 84,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "update",
+      "run_id": "20261017212311073",
+      "attribution": "run",
+      "started_at": "2026-10-17 17:37:00",
+      "ended_at": "2026-10-17 17:37:32",
+      "items": 83,
+      "size": "46.83GB",
+      "operation_count": 87,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "touchid",
+      "run_id": "20261017213011110",
+      "attribution": "run",
+      "started_at": "2026-10-17 17:30:00",
+      "ended_at": "2026-10-17 17:30:33",
+      "items": 90,
+      "size": "522.2MB",
+      "operation_count": 90,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "clean-dry-run",
+      "run_id": "20261017213711147",
+      "attribution": "run",
+      "started_at": "2026-10-17 17:23:00",
+      "ended_at": "2026-10-17 17:23:34",
+      "items": 3,
+      "size": "2.22GB",
+      "operation_count": 93,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 3,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize-dry-run",
+      "run_id": "20261017214411184",
+      "attribution": "run",
+      "started_at": "2026-10-17 17:16:00",
+      "ended_at": "2026-10-17 17:16:35",
+      "items": 16,
+      "size": "0B",
+      "operation_count": 96,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 16,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge-dry-run",
+      "run_id": "20261017215111221",
+      "attribution": "run",
+      "started_at": "2026-10-17 17:09:00",
+      "ended_at": "",
+      "items": 29,
+      "size": "4KB",
+      "operation_count": 99,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 29,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall-dry-run",
+      "run_id": "20261017215811258",
+      "attribution": "ambiguous",
+      "started_at": "2026-10-17 17:02:00",
+      "ended_at": "2026-10-17 17:02:37",
+      "items": 42,
+      "size": "172KB",
+      "operation_count": 102,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 42,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017210511295",
+      "attribution": "run",
+      "started_at": "2026-10-17 16:55:00",
+      "ended_at": "2026-10-17 16:55:38",
+      "items": 5,
+      "size": "1.5MB",
+      "operation_count": 105,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 5,
+        "trashed": 5,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017211211332",
+      "attribution": "run",
+      "started_at": "2026-10-17 16:48:00",
+      "ended_at": "2026-10-17 16:48:39",
+      "items": 12,
+      "size": "24.5MB",
+      "operation_count": 108,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 12,
+        "trashed": 5,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "20261017211911369",
+      "attribution": "run",
+      "started_at": "2026-10-17 16:41:00",
+      "ended_at": "2026-10-17 16:41:40",
+      "items": 19,
+      "size": "46.83GB",
+      "operation_count": 111,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 2,
+        "failed": 0,
+        "rebuilt": 1,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 16:34:00",
+      "ended_at": "2026-10-17 16:34:41",
+      "items": 26,
+      "size": "522.2MB",
+      "operation_count": 114,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "20261017213311443",
+      "attribution": "run",
+      "started_at": "2026-10-17 16:27:00",
+      "ended_at": "2026-10-17 16:27:42",
+      "items": 33,
+      "size": "2.22GB",
+      "operation_count": 117,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "installer",
+      "run_id": "20261017214011480",
+      "attribution": "run",
+      "started_at": "2026-10-17 16:20:00",
+      "ended_at": "2026-10-17 16:20:03",
+      "items": 40,
+      "size": "0B",
+      "operation_count": 120,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "update",
+      "run_id": "20261017214711517",
+      "attribution": "run",
+      "started_at": "2026-10-17 16:13:00",
+      "ended_at": "2026-10-17 16:13:04",
+      "items": 47,
+      "size": "4KB",
+      "operation_count": 123,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "touchid",
+      "run_id": "20261017215411554",
+      "attribution": "run",
+      "started_at": "2026-10-17 16:06:00",
+      "ended_at": "2026-10-17 16:06:05",
+      "items": 54,
+      "size": "172KB",
+      "operation_count": 126,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "clean-dry-run",
+      "run_id": "20261017210111591",
+      "attribution": "run",
+      "started_at": "2026-10-17 15:59:00",
+      "ended_at": "2026-10-17 15:59:06",
+      "items": 159,
+      "size": "1.5MB",
+      "operation_count": 129,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 159,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize-dry-run",
+      "run_id": "20261017210811628",
+      "attribution": "run",
+      "started_at": "2026-10-17 15:52:00",
+      "ended_at": "",
+      "items": 172,
+      "size": "24.5MB",
+      "operation_count": 132,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 172,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge-dry-run",
+      "run_id": "20261017211511665",
+      "attribution": "run",
+      "started_at": "2026-10-17 15:45:00",
+      "ended_at": "2026-10-17 15:45:08",
+      "items": 185,
+      "size": "46.83GB",
+      "operation_count": 135,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 185,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall-dry-run",
+      "run_id": "20261017212211702",
+      "attribution": "run",
+      "started_at": "2026-10-17 15:38:00",
+      "ended_at": "2026-10-17 15:38:09",
+      "items": 198,
+      "size": "522.2MB",
+      "operation_count": 138,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 198,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017212911739",
+      "attribution": "run",
+      "started_at": "2026-10-17 15:31:00",
+      "ended_at": "2026-10-17 15:31:10",
+      "items": 89,
+      "size": "2.22GB",
+      "operation_count": 1,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 29,
+        "trashed": 5,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017213611776",
+      "attribution": "run",
+      "started_at": "2026-10-17 15:24:00",
+      "ended_at": "2026-10-17 15:24:11",
+      "items": 96,
+      "size": "0B",
+      "operation_count": 4,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 36,
+        "trashed": 5,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "20261017214311813",
+      "attribution": "run",
+      "started_at": "2026-10-17 15:17:00",
+      "ended_at": "2026-10-17 15:17:12",
+      "items": 103,
+      "size": "4KB",
+      "operation_count": 7,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 4,
+        "failed": 0,
+        "rebuilt": 4,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "20261017215011850",
+      "attribution": "run",
+      "started_at": "2026-10-17 15:10:00",
+      "ended_at": "2026-10-17 15:10:13",
+      "items": 110,
+      "size": "172KB",
+      "operation_count": 10,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "20261017215711887",
+      "attribution": "ambiguous",
+      "started_at": "2026-10-17 15:03:00",
+      "ended_at": "2026-10-17 15:03:14",
+      "items": 117,
+      "size": "1.5MB",
+      "operation_count": 13,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "installer",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 14:56:00",
+      "ended_at": "2026-10-17 14:56:15",
+      "items": 4,
+      "size": "24.5MB",
+      "operation_count": 16,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "update",
+      "run_id": "20261017211111961",
+      "attribution": "run",
+      "started_at": "2026-10-17 14:49:00",
+      "ended_at": "2026-10-17 14:49:16",
+      "items": 11,
+      "size": "46.83GB",
+      "operation_count": 19,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "touchid",
+      "run_id": "20261017211811998",
+      "attribution": "run",
+      "started_at": "2026-10-17 14:42:00",
+      "ended_at": "2026-10-17 14:42:17",
+      "items": 18,
+      "size": "522.2MB",
+      "operation_count": 22,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "clean-dry-run",
+      "run_id": "20261017212512035",
+      "attribution": "run",
+      "started_at": "2026-10-17 14:35:00",
+      "ended_at": "",
+      "items": 315,
+      "size": "2.22GB",
+      "operation_count": 25,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 315,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize-dry-run",
+      "run_id": "20261017213212072",
+      "attribution": "run",
+      "started_at": "2026-10-17 14:28:00",
+      "ended_at": "2026-10-17 14:28:19",
+      "items": 328,
+      "size": "0B",
+      "operation_count": 28,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 328,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge-dry-run",
+      "run_id": "20261017213912109",
+      "attribution": "run",
+      "started_at": "2026-10-17 14:21:00",
+      "ended_at": "2026-10-17 14:21:20",
+      "items": 341,
+      "size": "4KB",
+      "operation_count": 31,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 341,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall-dry-run",
+      "run_id": "20261017214612146",
+      "attribution": "run",
+      "started_at": "2026-10-17 14:14:00",
+      "ended_at": "2026-10-17 14:14:21",
+      "items": 354,
+      "size": "172KB",
+      "operation_count": 34,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 354,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 14:07:00",
+      "ended_at": "2026-10-17 14:07:22",
+      "items": 53,
+      "size": "1.5MB",
+      "operation_count": 37,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 53,
+        "trashed": 4,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017200012220",
+      "attribution": "run",
+      "started_at": "2026-10-17 14:00:00",
+      "ended_at": "2026-10-17 14:00:23",
+      "items": 60,
+      "size": "24.5MB",
+      "operation_count": 40,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 4,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "20261017200712257",
+      "attribution": "run",
+      "started_at": "2026-10-17 13:53:00",
+      "ended_at": "2026-10-17 13:53:24",
+      "items": 67,
+      "size": "46.83GB",
+      "operation_count": 43,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 1,
+        "failed": 0,
+        "rebuilt": 7,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "20261017201412294",
+      "attribution": "run",
+      "started_at": "2026-10-17 13:46:00",
+      "ended_at": "2026-10-17 13:46:25",
+      "items": 74,
+      "size": "522.2MB",
+      "operation_count": 46,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "20261017202112331",
+      "attribution": "run",
+      "started_at": "2026-10-17 13:39:00",
+      "ended_at": "2026-10-17 13:39:26",
+      "items": 81,
+      "size": "2.22GB",
+      "operation_count": 49,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "installer",
+      "run_id": "20261017202812368",
+      "attribution": "run",
+      "started_at": "2026-10-17 13:32:00",
+      "ended_at": "2026-10-17 13:32:27",
+      "items": 88,
+      "size": "0B",
+      "operation_count": 52,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "update",
+      "run_id": "20261017203512405",
+      "attribution": "run",
+      "started_at": "2026-10-17 13:25:00",
+      "ended_at": "2026-10-17 13:25:28",
+      "items": 95,
+      "size": "4KB",
+      "operation_count": 55,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "touchid",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 13:18:00",
+      "ended_at": "",
+      "items": 102,
+      "size": "172KB",
+      "operation_count": 58,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "clean-dry-run",
+      "run_id": "20261017204912479",
+      "attribution": "run",
+      "started_at": "2026-10-17 13:11:00",
+      "ended_at": "2026-10-17 13:11:30",
+      "items": 71,
+      "size": "1.5MB",
+      "operation_count": 61,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 71,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize-dry-run",
+      "run_id": "20261017205612516",
+      "attribution": "ambiguous",
+      "started_at": "2026-10-17 13:04:00",
+      "ended_at": "2026-10-17 13:04:31",
+      "items": 84,
+      "size": "24.5MB",
+      "operation_count": 64,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 84,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge-dry-run",
+      "run_id": "20261017200312553",
+      "attribution": "run",
+      "started_at": "2026-10-17 12:57:00",
+      "ended_at": "2026-10-17 12:57:32",
+      "items": 97,
+      "size": "46.83GB",
+      "operation_count": 67,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 97,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall-dry-run",
+      "run_id": "20261017201012590",
+      "attribution": "run",
+      "started_at": "2026-10-17 12:50:00",
+      "ended_at": "2026-10-17 12:50:33",
+      "items": 110,
+      "size": "522.2MB",
+      "operation_count": 70,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 110,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017201712627",
+      "attribution": "run",
+      "started_at": "2026-10-17 12:43:00",
+      "ended_at": "2026-10-17 12:43:34",
+      "items": 17,
+      "size": "2.22GB",
+      "operation_count": 73,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 17,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017202412664",
+      "attribution": "run",
+      "started_at": "2026-10-17 12:36:00",
+      "ended_at": "2026-10-17 12:36:35",
+      "items": 24,
+      "size": "0B",
+      "operation_count": 76,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 24,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 12:29:00",
+      "ended_at": "2026-10-17 12:29:36",
+      "items": 31,
+      "size": "4KB",
+      "operation_count": 79,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 3,
+        "failed": 0,
+        "rebuilt": 1,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "20261017203812738",
+      "attribution": "run",
+      "started_at": "2026-10-17 12:22:00",
+      "ended_at": "2026-10-17 12:22:37",
+      "items": 38,
+      "size": "172KB",
+      "operation_count": 82,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "20261017204512775",
+      "attribution": "run",
+      "started_at": "2026-10-17 12:15:00",
+      "ended_at": "2026-10-17 12:15:38",
+      "items": 45,
+      "size": "1.5MB",
+      "operation_count": 85,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "installer",
+      "run_id": "20261017205212812",
+      "attribution": "run",
+      "started_at": "2026-10-17 12:08:00",
+      "ended_at": "2026-10-17 12:08:39",
+      "items": 52,
+      "size": "24.5MB",
+      "operation_count": 88,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "update",
+      "run_id": "20261017205912849",
+      "attribution": "run",
+      "started_at": "2026-10-17 12:01:00",
+      "ended_at": "",
+      "items": 59,
+      "size": "46.83GB",
+      "operation_count": 91,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "touchid",
+      "run_id": "20261017200612886",
+      "attribution": "run",
+      "started_at": "2026-10-17 11:54:00",
+      "ended_at": "2026-10-17 11:54:41",
+      "items": 66,
+      "size": "522.2MB",
+      "operation_count": 94,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "clean-dry-run",
+      "run_id": "20261017201312923",
+      "attribution": "run",
+      "started_at": "2026-10-17 11:47:00",
+      "ended_at": "2026-10-17 11:47:42",
+      "items": 227,
+      "size": "2.22GB",
+      "operation_count": 97,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 227,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize-dry-run",
+      "run_id": "20261017202012960",
+      "attribution": "run",
+      "started_at": "2026-10-17 11:40:00",
+      "ended_at": "2026-10-17 11:40:03",
+      "items": 240,
+      "size": "0B",
+      "operation_count": 100,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 240,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge-dry-run",
+      "run_id": "20261017202712997",
+      "attribution": "run",
+      "started_at": "2026-10-17 11:33:00",
+      "ended_at": "2026-10-17 11:33:04",
+      "items": 253,
+      "size": "4KB",
+      "operation_count": 103,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 253,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall-dry-run",
+      "run_id": "20261017203413034",
+      "attribution": "run",
+      "started_at": "2026-10-17 11:26:00",
+      "ended_at": "2026-10-17 11:26:05",
+      "items": 266,
+      "size": "172KB",
+      "operation_count": 106,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 266,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017204113071",
+      "attribution": "run",
+      "started_at": "2026-10-17 11:19:00",
+      "ended_at": "2026-10-17 11:19:06",
+      "items": 101,
+      "size": "1.5MB",
+      "operation_count": 109,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 41,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017204813108",
+      "attribution": "run",
+      "started_at": "2026-10-17 11:12:00",
+      "ended_at": "2026-10-17 11:12:07",
+      "items": 108,
+      "size": "24.5MB",
+      "operation_count": 112,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 48,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "20261017205513145",
+      "attribution": "ambiguous",
+      "started_at": "2026-10-17 11:05:00",
+      "ended_at": "2026-10-17 11:05:08",
+      "items": 115,
+      "size": "46.83GB",
+      "operation_count": 115,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 4,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "20261017200213182",
+      "attribution": "run",
+      "started_at": "2026-10-17 10:58:00",
+      "ended_at": "2026-10-17 10:58:09",
+      "items": 2,
+      "size": "522.2MB",
+      "operation_count": 118,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "",
+      "attribution": "command",
+      "started_at": "2026-10-17 10:51:00",
+      "ended_at": "2026-10-17 10:51:10",
+      "items": 9,
+      "size": "2.22GB",
+      "operation_count": 121,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "installer",
+      "run_id": "20261017201613256",
+      "attribution": "run",
+      "started_at": "2026-10-17 10:44:00",
+      "ended_at": "",
+      "items": 16,
+      "size": "0B",
+      "operation_count": 124,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "update",
+      "run_id": "20261017202313293",
+      "attribution": "run",
+      "started_at": "2026-10-17 10:37:00",
+      "ended_at": "2026-10-17 10:37:12",
+      "items": 23,
+      "size": "4KB",
+      "operation_count": 127,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "touchid",
+      "run_id": "20261017203013330",
+      "attribution": "run",
+      "started_at": "2026-10-17 10:30:00",
+      "ended_at": "2026-10-17 10:30:13",
+      "items": 30,
+      "size": "172KB",
+      "operation_count": 130,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 1
+      }
+    },
+    {
+      "command": "clean-dry-run",
+      "run_id": "20261017203713367",
+      "attribution": "run",
+      "started_at": "2026-10-17 10:23:00",
+      "ended_at": "2026-10-17 10:23:14",
+      "items": 383,
+      "size": "1.5MB",
+      "operation_count": 133,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 383,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize-dry-run",
+      "run_id": "20261017204413404",
+      "attribution": "run",
+      "started_at": "2026-10-17 10:16:00",
+      "ended_at": "2026-10-17 10:16:15",
+      "items": 396,
+      "size": "24.5MB",
+      "operation_count": 136,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 396,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge-dry-run",
+      "run_id": "20261017205113441",
+      "attribution": "run",
+      "started_at": "2026-10-17 10:09:00",
+      "ended_at": "2026-10-17 10:09:16",
+      "items": 9,
+      "size": "46.83GB",
+      "operation_count": 139,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 9,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall-dry-run",
+      "run_id": "20261017205813478",
+      "attribution": "run",
+      "started_at": "2026-10-17 10:02:00",
+      "ended_at": "2026-10-17 10:02:17",
+      "items": 22,
+      "size": "522.2MB",
+      "operation_count": 2,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 22,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017200513515",
+      "attribution": "run",
+      "started_at": "2026-10-17 09:55:00",
+      "ended_at": "2026-10-17 09:55:18",
+      "items": 65,
+      "size": "2.22GB",
+      "operation_count": 5,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 5,
+        "trashed": 2,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "clean",
+      "run_id": "20261017201213552",
+      "attribution": "run",
+      "started_at": "2026-10-17 09:48:00",
+      "ended_at": "2026-10-17 09:48:19",
+      "items": 72,
+      "size": "0B",
+      "operation_count": 8,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 12,
+        "trashed": 2,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "optimize",
+      "run_id": "20261017201913589",
+      "attribution": "run",
+      "started_at": "2026-10-17 09:41:00",
+      "ended_at": "2026-10-17 09:41:20",
+      "items": 79,
+      "size": "4KB",
+      "operation_count": 11,
+      "failed_tasks": 1,
+      "actions": {
+        "removed": 0,
+        "trashed": 0,
+        "skipped": 2,
+        "failed": 0,
+        "rebuilt": 7,
+        "other": 0
+      }
+    },
+    {
+      "command": "purge",
+      "run_id": "20261017202613626",
+      "attribution": "run",
+      "started_at": "2026-10-17 09:34:00",
+      "ended_at": "2026-10-17 09:34:21",
+      "items": 86,
+      "size": "172KB",
+      "operation_count": 14,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 2,
+        "trashed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "rebuilt": 0,
+        "other": 0
+      }
+    },
+    {
+      "command": "uninstall",
+      "run_id": "20261017203313663",
+      "attribution": "run",
+      "started_at": "2026-10-17 09:27:00",
+      "ended_at": "",
+      "items": 93,
+      "size": "1.5MB",
+      "operation_count": 17,
+      "failed_tasks": 0,
+      "actions": {
+        "removed": 0,
+        "trashed": 3,
+        "skipped": 0,
+        "failed": 1,
+        "rebuilt": 0,
+        "other": 0
+      }
+    }
+  ],
+  "deletions": [
+    {
+      "timestamp": "2026-10-17T21:00:00+0800",
+      "mode": "trash",
+      "status": "ok",
+      "size_kb": 37,
+      "path": "/Users/example/Library/Caches/com.example.app"
+    },
+    {
+      "timestamp": "2026-10-17T20:05:00+0800",
+      "mode": "trash",
+      "status": "ok",
+      "size_kb": 74,
+      "path": "/Users/example/Library/Application Support/Example App"
+    },
+    {
+      "timestamp": "2026-10-17T19:10:00+0800",
+      "mode": "permanent",
+      "status": "dry-run",
+      "size_kb": 111,
+      "path": "/Applications/Example App.app"
+    },
+    {
+      "timestamp": "2026-10-17T18:15:00+0800",
+      "mode": "trash",
+      "status": "rejected",
+      "size_kb": null,
+      "path": "/Users/example/Library/Preferences/com.example.app.plist"
+    },
+    {
+      "timestamp": "2026-10-17T17:20:00+0800",
+      "mode": "trash",
+      "status": "privacy-denied",
+      "size_kb": null,
+      "path": "/Users/example/Library/Logs/example.log"
+    },
+    {
+      "timestamp": "2026-10-17T16:25:00+0800",
+      "mode": "permanent",
+      "status": "trash-failed",
+      "size_kb": 222,
+      "path": "/Users/example/Library/Caches/com.example.app"
+    },
+    {
+      "timestamp": "2026-10-17T15:30:00+0800",
+      "mode": "trash",
+      "status": "identity-changed",
+      "size_kb": null,
+      "path": "/Users/example/Library/Application Support/Example App"
+    },
+    {
+      "timestamp": "2026-10-17T14:35:00+0800",
+      "mode": "trash",
+      "status": "mutable-parent",
+      "size_kb": null,
+      "path": "/Applications/Example App.app"
+    },
+    {
+      "timestamp": "2026-10-17T13:40:00+0800",
+      "mode": "permanent",
+      "status": "interrupted",
+      "size_kb": null,
+      "path": "/Users/example/Library/Preferences/com.example.app.plist"
+    },
+    {
+      "timestamp": "2026-10-17T12:45:00+0800",
+      "mode": "trash",
+      "status": "timed-out",
+      "size_kb": null,
+      "path": "/Users/example/Library/Logs/example.log"
+    },
+    {
+      "timestamp": "2026-10-17T11:50:00+0800",
+      "mode": "trash",
+      "status": "sudo-blocked-test-mode",
+      "size_kb": null,
+      "path": "/Users/example/Library/Caches/com.example.app"
+    },
+    {
+      "timestamp": "2026-10-17T10:55:00+0800",
+      "mode": "permanent",
+      "status": "ok",
+      "size_kb": 444,
+      "path": "/Users/example/Library/Application Support/Example App"
+    },
+    {
+      "timestamp": "2026-10-17T10:00:00+0800",
+      "mode": "trash",
+      "status": "ok",
+      "size_kb": 481,
+      "path": "/Applications/Example App.app"
+    },
+    {
+      "timestamp": "2026-10-17T09:05:00+0800",
+      "mode": "trash",
+      "status": "dry-run",
+      "size_kb": 518,
+      "path": "/Users/example/Library/Preferences/com.example.app.plist"
+    },
+    {
+      "timestamp": "2026-10-17T08:10:00+0800",
+      "mode": "permanent",
+      "status": "rejected",
+      "size_kb": null,
+      "path": "/Users/example/Library/Logs/example.log"
+    },
+    {
+      "timestamp": "2026-10-17T07:15:00+0800",
+      "mode": "trash",
+      "status": "privacy-denied",
+      "size_kb": null,
+      "path": "/Users/example/Library/Caches/com.example.app"
+    },
+    {
+      "timestamp": "2026-10-17T06:20:00+0800",
+      "mode": "trash",
+      "status": "trash-failed",
+      "size_kb": 629,
+      "path": "/Users/example/Library/Application Support/Example App"
+    },
+    {
+      "timestamp": "2026-10-17T05:25:00+0800",
+      "mode": "permanent",
+      "status": "identity-changed",
+      "size_kb": null,
+      "path": "/Applications/Example App.app"
+    },
+    {
+      "timestamp": "2026-10-17T04:30:00+0800",
+      "mode": "trash",
+      "status": "mutable-parent",
+      "size_kb": null,
+      "path": "/Users/example/Library/Preferences/com.example.app.plist"
+    },
+    {
+      "timestamp": "2026-10-17T03:35:00+0800",
+      "mode": "trash",
+      "status": "interrupted",
+      "size_kb": null,
+      "path": "/Users/example/Library/Logs/example.log"
+    }
+  ]
+}

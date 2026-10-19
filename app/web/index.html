@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' file:; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Mole GUI</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="titlebar-drag" aria-hidden="true">
+      <span class="drag-title">Mole</span>
+    </div>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11.5 3.5l1.6 4.9 4.9 1.6-4.9 1.6-1.6 4.9-1.6-4.9L5 10l4.9-1.6 1.6-4.9z" />
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-name">Mole</span>
+            <span class="brand-sub">清理与系统维护</span>
+          </span>
+        </div>
+
+        <nav class="nav" id="nav" aria-label="主导航"></nav>
+
+        <div class="sidebar-footer" id="sidebar-footer"></div>
+      </aside>
+
+      <div class="main-col">
+        <header class="screen-header" id="screen-header">
+          <div class="header-text">
+            <h1 class="screen-title" id="screen-title">概览</h1>
+            <p class="screen-subtitle" id="screen-subtitle">系统健康与关键指标一览</p>
+          </div>
+          <div class="header-actions" id="header-actions">
+            <div class="screen-actions" id="screen-actions"></div>
+            <button type="button" class="btn ghost icon-only" id="global-refresh" title="刷新 (⌘R)" aria-label="刷新当前页面"></button>
+          </div>
+        </header>
+
+        <div class="cli-banner" id="cli-banner" hidden></div>
+
+        <main class="screen-body" id="screen-body" tabindex="-1"></main>
+
+        <div class="job-dock" id="job-dock"></div>
+      </div>
+    </div>
+
+    <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+    <div id="modal-root"></div>
+
+    <!-- Core helpers (order matters: icons -> ui -> parsers -> bridge -> app). -->
+    <script src="js/icons.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/parsers.js"></script>
+    <script src="js/bridge.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Screen modules: missing files are tolerated; app.js registers placeholders. -->
+    <script src="js/screens/dashboard.js"></script>
+    <script src="js/screens/clean.js"></script>
+    <script src="js/screens/optimize.js"></script>
+    <script src="js/screens/uninstall.js"></script>
+    <script src="js/screens/reclaim.js"></script>
+    <script src="js/screens/analyze.js"></script>
+    <script src="js/screens/history.js"></script>
+    <script src="js/screens/settings.js"></script>
+  </body>
+</html>

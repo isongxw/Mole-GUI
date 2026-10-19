@@ -1,0 +1,234 @@
+{
+  "collected_at": "2026-10-17T21:46:07.538862+08:00",
+  "host": "example-host.local",
+  "platform": "darwin 26.6.2",
+  "uptime": "18d 23h",
+  "uptime_seconds": 1641479,
+  "procs": 970,
+  "hardware": {
+    "model": "MacBook Pro",
+    "cpu_model": "Apple M5",
+    "total_ram": "32.0 GB",
+    "disk_size": "926.3 GB",
+    "os_version": "macOS 26.6.2",
+    "refresh_rate": ""
+  },
+  "health_score": 97,
+  "health_score_msg": "Excellent: Restart Recommended",
+  "cpu": {
+    "usage": 28.182592099208826,
+    "per_core": [
+      39.55481060748586,
+      29.66610795741314,
+      27.272727271524634,
+      19.77740530374293,
+      9.888702651871466,
+      9.888702650972094,
+      39.55481060658649,
+      29.666107955164712,
+      36.36363636637988,
+      39.55481060658649
+    ],
+    "per_core_estimated": false,
+    "load1": 3.22509765625,
+    "load5": 3.3828125,
+    "load15": 3.0654296875,
+    "core_count": 10,
+    "logical_cpu": 10,
+    "p_core_count": 4,
+    "e_core_count": 6
+  },
+  "gpu": [
+    {
+      "name": "Apple M5",
+      "usage": -1,
+      "memory_used": 0,
+      "memory_total": 0,
+      "core_count": 10,
+      "note": "sppci_vendor_Apple"
+    }
+  ],
+  "memory": {
+    "used": 21448310784,
+    "total": 34359738368,
+    "available": 12911427584,
+    "used_percent": 62.422800064086914,
+    "swap_used": 0,
+    "swap_total": 0,
+    "cached": 10521149440,
+    "pressure": ""
+  },
+  "disks": [
+    {
+      "mount": "/",
+      "device": "/dev/disk3s1s1",
+      "used": 671207907328,
+      "total": 994610155520,
+      "used_percent": 67.48452181016395,
+      "fstype": "apfs",
+      "external": false,
+      "smart_status": "verified"
+    }
+  ],
+  "trash_size": 0,
+  "trash_approx": false,
+  "disk_io": {
+    "read_rate": 0,
+    "write_rate": 0
+  },
+  "network": [
+    {
+      "name": "en0",
+      "rx_rate_mbs": 0.11762619018554688,
+      "tx_rate_mbs": 0.16988754272460938,
+      "ip": "192.0.2.10"
+    },
+    {
+      "name": "en4",
+      "rx_rate_mbs": 0,
+      "tx_rate_mbs": 0,
+      "ip": ""
+    },
+    {
+      "name": "en5",
+      "rx_rate_mbs": 0,
+      "tx_rate_mbs": 0,
+      "ip": ""
+    }
+  ],
+  "network_history": {
+    "rx_history": [
+      0.11762619018554688
+    ],
+    "tx_history": [
+      0.16988754272460938
+    ]
+  },
+  "proxy": {
+    "enabled": true,
+    "type": "SOCKS",
+    "host": "127.0.0.1:7897"
+  },
+  "batteries": [
+    {
+      "percent": 63,
+      "status": "AC",
+      "time_left": "",
+      "health": "Good",
+      "cycle_count": 26,
+      "capacity": 100
+    }
+  ],
+  "thermal": {
+    "cpu_temp": 0,
+    "gpu_temp": 0,
+    "battery_temp": 31.03,
+    "fan_speed": 0,
+    "fan_count": 0,
+    "system_power": 45.232,
+    "adapter_power": 68,
+    "battery_power": -9.389
+  },
+  "sensors": null,
+  "bluetooth": [
+    {
+      "name": "Example Headphones",
+      "connected": false,
+      "battery": ""
+    },
+    {
+      "name": "Example Earbuds",
+      "connected": false,
+      "battery": ""
+    },
+    {
+      "name": "Example Keyboard",
+      "connected": false,
+      "battery": ""
+    },
+    {
+      "name": "Example Keyboard",
+      "connected": false,
+      "battery": ""
+    },
+    {
+      "name": "Example Mouse",
+      "connected": false,
+      "battery": ""
+    },
+    {
+      "name": "Example AirPods",
+      "connected": false,
+      "battery": ""
+    },
+    {
+      "name": "Example AirPods",
+      "connected": false,
+      "battery": ""
+    }
+  ],
+  "top_processes": [
+    {
+      "pid": 41795,
+      "ppid": 13547,
+      "name": "Example Browser Helper (Renderer)",
+      "command": "Example Browser Helper (Renderer)",
+      "cpu": 95.2,
+      "memory": 1.1,
+      "memory_bytes": 382205952
+    },
+    {
+      "pid": 405,
+      "ppid": 1,
+      "name": "WindowServer",
+      "command": "WindowServer",
+      "cpu": 44.6,
+      "memory": 0.5,
+      "memory_bytes": 165543936
+    },
+    {
+      "pid": 13547,
+      "ppid": 1,
+      "name": "Example Browser",
+      "command": "Example Browser",
+      "cpu": 27.9,
+      "memory": 1.6,
+      "memory_bytes": 560037888
+    },
+    {
+      "pid": 899,
+      "ppid": 1,
+      "name": "XprotectService",
+      "command": "XprotectService",
+      "cpu": 25.4,
+      "memory": 0.1,
+      "memory_bytes": 44843008
+    },
+    {
+      "pid": 41842,
+      "ppid": 13547,
+      "name": "Example Browser Helper (Renderer)",
+      "command": "Example Browser Helper (Renderer)",
+      "cpu": 22.8,
+      "memory": 0.5,
+      "memory_bytes": 178307072
+    }
+  ],
+  "process_collected_at": "2026-10-17T21:46:07.538862+08:00",
+  "process_stale": false,
+  "zombie_count": 1,
+  "zombie_parents": [
+    {
+      "pid": 39987,
+      "name": "example-helper",
+      "count": 1
+    }
+  ],
+  "zombie_parents_complete": true,
+  "process_watch": {
+    "enabled": true,
+    "cpu_threshold": 100,
+    "window": "5m0s"
+  },
+  "process_alerts": []
+}

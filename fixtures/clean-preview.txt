@@ -1,0 +1,350 @@
+
+Clean Your Mac
+
+Dry Run Mode, Preview only, no deletions
+
+◎ System caches need sudo, run sudo -v && mo clean --dry-run for full preview
+
+⚙ Apple Silicon | Free space: 323.40GB
+✓ Whitelist: 19 core patterns active
+  ↳ /Users/example/Library/Caches/ms-playwright*
+  ↳ /Users/example/.gradle/caches/*
+  ↳ /Users/example/.gradle/daemon/*
+  ↳ /Users/example/.ollama/models/*
+  ↳ /Users/example/Library/Caches/com.nssurge.surge-mac/*
+  ↳ /Users/example/Library/Application Support/com.nssurge.surge-mac/*
+  ↳ /Users/example/Library/Caches/org.R-project.R/R/renv/*
+  ↳ /Users/example/Library/Caches/JetBrains*
+  ↳ /Users/example/Library/Caches/com.jetbrains.toolbox*
+  ↳ /Users/example/Library/Caches/tealdeer/tldr-pages
+  ↳ /Users/example/Library/Application Support/JetBrains*
+  ↳ /Users/example/Library/Caches/com.apple.finder
+  ↳ /Users/example/Library/Mobile Documents*
+  ↳ /Users/example/Library/Caches/com.apple.FontRegistry*
+  ↳ /Users/example/Library/Caches/com.apple.spotlight*
+  ↳ /Users/example/Library/Caches/com.apple.Spotlight*
+  ↳ /Users/example/Library/Caches/CloudKit*
+  ↳ /Users/example/Library/Caches/pypoetry/virtualenvs*
+
+➤ User essentials
+  → User app cache · 58 items, 8.87GB dry
+  → User app logs · 18 items, 24.5MB dry
+  ◎ Trash · skipped, grant Full Disk Access to your terminal
+
+➤ App caches
+  → Media analysis temp files · 4 items, 7.6MB dry
+  → Wallpaper aerials temp files · 6 items, 173.7MB dry
+  → Geod temp files · 237 items, 39.2MB dry
+  → macOS Help system cache · 5 items, 29.2MB dry
+  → Maps geo tile cache · 8 items, 89.8MB dry
+  → Apple Media Services temp files · 5 items, 7.2MB dry
+  → Apple Media Services cache · 6 items, 7.4MB dry
+  → Parsecd cache · 3 items, 172KB dry
+  → Apple Python cache · 3 items, 11.4MB dry
+  → Sandboxed app caches · 0B dry
+
+➤ Browsers
+  → Chrome cache · 1.98GB dry
+  → Chrome Service Worker, would clean 522.2MB, 0 protected
+  → GoogleUpdater CRX cache · 3 items, 784.0MB dry
+  → GoogleUpdater old files · 2 items, 2.1MB dry
+  → Puppeteer browser cache · 2 items, 1.46GB dry
+
+➤ Cloud & Office
+  → Microsoft Word temp files · 15 items, 8.1MB dry
+  → Microsoft Excel temp files · 2 items, 0B dry
+
+➤ Developer tools
+  → npm cache · would clean
+  → npm cache directory · 4 items, 30.34GB dry
+  → npm npx cache · 8 items, 1.36GB dry
+  → npm logs · 12 items, 15KB dry
+  → npm prebuilds · 3.6MB dry
+  → bun cache · would clean
+  → pip cache · would clean
+  → uv cache · would clean
+  → Go module cache · would clean
+  → Go build cache · would clean
+  ⊙ Docker unused data · review with docker system df
+  → GitHub CLI cache · would clean
+  → Oh My Zsh cache · 4 items, 3KB dry
+  → Python bytecode cache · ai-translator · 34 dirs, 2.3MB dry
+  → Python bytecode cache · ocr · 3 dirs, 66KB dry
+  → Python bytecode cache · anicatch · 1 dirs, 61KB dry
+  → Clang module cache · 64.3MB dry
+  → Sentry crash reports · 7 items, 29KB dry
+  → Qoder cache · 2 items, 979KB dry
+  → Qoder cached data · 5 items, 217.5MB dry
+  → Qoder extension cache · 8 items, 42.5MB dry
+  → Qoder code cache · 2 items, 16KB dry
+  → Qoder GPU cache · 5 items, 5.8MB dry
+  → Qoder Dawn cache · 5 items, 558KB dry
+  → Qoder WebGPU cache · 5 items, 558KB dry
+  → Qoder logs · 10 items, 23.9MB dry
+  → OpenCode cache · 4 items, 241.0MB dry
+  → Codex Desktop Cache · 2 items, 8.8MB dry
+  → Codex Desktop Code Cache · 2 items, 16KB dry
+  → Codex Desktop Cache · 2 items, 29KB dry
+  → Codex Desktop Code Cache · 2 items, 16KB dry
+  ⊙ Codex runtimes · manual review
+  ◎ Codex marketplace staging · skipped (open-file check unavailable)
+  → VS Code logs · 10 items, 16.3MB dry
+  → VS Code cache · 2 items, 27.4MB dry
+  → VS Code extension cache · 16 items, 209.9MB dry
+  → VS Code data cache · 6 items, 78.6MB dry
+  → VS Code webview cache · 21 items, 183.7MB dry
+  → Obsolete VS Code extension · 26.7MB dry
+  → Obsolete VS Code extension · 26.7MB dry
+  → Obsolete VS Code extension · 26.7MB dry
+  → Obsolete VS Code extension · 16.3MB dry
+  → Obsolete VS Code extension · 116.7MB dry
+  → Homebrew cache · 181 items, 1.40GB dry
+  → Homebrew cleanup · would free 1.5GB
+    ~/Library/Caches/Homebrew/ada-url--4.0.0 · 336.1KB
+    ~/Library/Caches/Homebrew/ada-url_bottle_manifest--4.0.0 · 25.3KB
+    ~/Library/Caches/Homebrew/c-ares--1.34.8 · 307.3KB
+    ~/Library/Caches/Homebrew/c-ares_bottle_manifest--1.34.8 · 14.9KB
+    ~/Library/Caches/Homebrew/ca-certificates--2026-08-13 · 112.2KB
+    ~/Library/Caches/Homebrew/ca-certificates_bottle_manifest--2026-08-13-1 · 11.9KB
+    ~/Library/Caches/Homebrew/certifi--2026.7.22 · 6.5KB
+    ~/Library/Caches/Homebrew/certifi_bottle_manifest--2026.7.22 · 14.7KB
+    ~/Library/Caches/Homebrew/cffi--2.1.1 · 353.8KB
+    ~/Library/Caches/Homebrew/cffi_bottle_manifest--2.1.1 · 32.8KB
+    ~/Library/Caches/Homebrew/dav1d--1.5.4 · 388.8KB
+    ~/Library/Caches/Homebrew/dav1d_bottle_manifest--1.5.4 · 15.0KB
+    ~/Library/Caches/Homebrew/deno--2.9.6 · 44MB
+    ~/Library/Caches/Homebrew/deno_bottle_manifest--2.9.6 · 101.4KB
+    ~/Library/Caches/Homebrew/ffmpeg--9.0.1_1 · 21.5MB
+    ~/Library/Caches/Homebrew/ffmpeg_bottle_manifest--9.0.1_1 · 214.1KB
+    ~/Library/Caches/Homebrew/fmt--12.2.0 · 288.4KB
+    ~/Library/Caches/Homebrew/fmt_bottle_manifest--12.2.0 · 7.3KB
+    ~/Library/Caches/Homebrew/fontconfig--2.18.3 · 451.6KB
+    ~/Library/Caches/Homebrew/fontconfig_bottle_manifest--2.18.3 · 56.3KB
+    ~/Library/Caches/Homebrew/fribidi--1.0.16 · 99.0KB
+    ~/Library/Caches/Homebrew/fribidi_bottle_manifest--1.0.16 · 10KB
+    ~/Library/Caches/Homebrew/gh--2.100.0 · 14MB
+    ~/Library/Caches/Homebrew/gh_bottle_manifest--2.100.0 · 14.9KB
+    ~/Library/Caches/Homebrew/giflib--6.1.3 · 143.2KB
+    ~/Library/Caches/Homebrew/giflib_bottle_manifest--6.1.3 · 7.7KB
+    ~/Library/Caches/Homebrew/glib--2.88.3 · 9.3MB
+    ~/Library/Caches/Homebrew/glib_bottle_manifest--2.88.3-1 · 85.7KB
+    ~/Library/Caches/Homebrew/gnupg--2.5.22 · 5.6MB
+    ~/Library/Caches/Homebrew/gnupg_bottle_manifest--2.5.22-1 · 161.9KB
+    ~/Library/Caches/Homebrew/gnutls--3.8.13_2 · 3MB
+    ~/Library/Caches/Homebrew/gnutls_bottle_manifest--3.8.13_2 · 16.6KB
+    ~/Library/Caches/Homebrew/go--1.27.1 · 67.6MB
+    ~/Library/Caches/Homebrew/go_bottle_manifest--1.27.1 · 15KB
+    ~/Library/Caches/Homebrew/gpgme--2.2.0 · 794.4KB
+    ~/Library/Caches/Homebrew/gpgme_bottle_manifest--2.2.0 · 183.7KB
+    ~/Library/Caches/Homebrew/gpgmepp--2.2.0 · 201.2KB
+    ~/Library/Caches/Homebrew/gpgmepp_bottle_manifest--2.2.0 · 189.5KB
+    ~/Library/Caches/Homebrew/graphite2--1.3.15 · 92.4KB
+    ~/Library/Caches/Homebrew/graphite2_bottle_manifest--1.3.15 · 8.0KB
+    ~/Library/Caches/Homebrew/harfbuzz--14.4.0 · 3.7MB
+    ~/Library/Caches/Homebrew/harfbuzz_bottle_manifest--14.4.0 · 197.3KB
+    ~/Library/Caches/Homebrew/hdrhistogram_c--0.11.10 · 43.6KB
+    ~/Library/Caches/Homebrew/hdrhistogram_c_bottle_manifest--0.11.10 · 7.8KB
+    ~/Library/Caches/Homebrew/jpeg-turbo--3.2.0 · 1.3MB
+    ~/Library/Caches/Homebrew/jpeg-turbo_bottle_manifest--3.2.0 · 8.3KB
+    ~/Library/Caches/Homebrew/json-c--0.19 · 106.9KB
+    ~/Library/Caches/Homebrew/json-c_bottle_manifest--0.19 · 7.2KB
+    ~/Library/Caches/Homebrew/lame--4.0 · 663.8KB
+    ~/Library/Caches/Homebrew/lame_bottle_manifest--4.0 · 23KB
+    ~/Library/Caches/Homebrew/leptonica--1.87.0 · 2.7MB
+    ~/Library/Caches/Homebrew/leptonica_bottle_manifest--1.87.0-1 · 17.3KB
+    ~/Library/Caches/Homebrew/libarchive--3.8.9 · 1.6MB
+    ~/Library/Caches/Homebrew/libarchive_bottle_manifest--3.8.9 · 52.2KB
+    ~/Library/Caches/Homebrew/libb2--0.98.1 · 36.6KB
+    ~/Library/Caches/Homebrew/libb2_bottle_manifest--0.98.1 · 15.3KB
+    ~/Library/Caches/Homebrew/libdatrie--0.2.14 · 70.5KB
+    ~/Library/Caches/Homebrew/libdatrie_bottle_manifest--0.2.14 · 7.8KB
+    ~/Library/Caches/Homebrew/libffi--3.8.0 · 271.0KB
+    ~/Library/Caches/Homebrew/libffi_bottle_manifest--3.8.0 · 16.9KB
+    ~/Library/Caches/Homebrew/libgcrypt--1.12.4 · 1.5MB
+    ~/Library/Caches/Homebrew/libgcrypt_bottle_manifest--1.12.4 · 28.5KB
+    ~/Library/Caches/Homebrew/libgpg-error--1.61 · 581.6KB
+    ~/Library/Caches/Homebrew/libgpg-error_bottle_manifest--1.61 · 9.5KB
+    ~/Library/Caches/Homebrew/libksba--1.8.1 · 182.6KB
+    ~/Library/Caches/Homebrew/libksba_bottle_manifest--1.8.1 · 41KB
+    ~/Library/Caches/Homebrew/libnghttp2--1.70.0 · 234.6KB
+    ~/Library/Caches/Homebrew/libnghttp2_bottle_manifest--1.70.0 · 17.1KB
+    ~/Library/Caches/Homebrew/libnghttp3--1.18.0 · 189.5KB
+    ~/Library/Caches/Homebrew/libnghttp3_bottle_manifest--1.18.0 · 14.8KB
+    ~/Library/Caches/Homebrew/libngtcp2--1.25.0 · 426.7KB
+    ~/Library/Caches/Homebrew/libngtcp2_bottle_manifest--1.25.0 · 32.3KB
+    ~/Library/Caches/Homebrew/libpng--1.6.58 · 459.8KB
+    ~/Library/Caches/Homebrew/libpng_bottle_manifest--1.6.58 · 8.6KB
+    ~/Library/Caches/Homebrew/libthai--0.1.30 · 277.4KB
+    ~/Library/Caches/Homebrew/libthai_bottle_manifest--0.1.30 · 8.2KB
+    ~/Library/Caches/Homebrew/libtiff--4.7.2 · 2.0MB
+    ~/Library/Caches/Homebrew/libtiff_bottle_manifest--4.7.2-1 · 61.8KB
+    ~/Library/Caches/Homebrew/libusb--1.0.30 · 192.2KB
+    ~/Library/Caches/Homebrew/libusb_bottle_manifest--1.0.30 · 15.0KB
+    ~/Library/Caches/Homebrew/libvmaf--3.2.0 · 1.2MB
+    ~/Library/Caches/Homebrew/libvmaf_bottle_manifest--3.2.0 · 7.7KB
+    ~/Library/Caches/Homebrew/libvpx--1.17.0 · 1.9MB
+    ~/Library/Caches/Homebrew/libvpx_bottle_manifest--1.17.0 · 17.5KB
+    ~/Library/Caches/Homebrew/little-cms2--2.19.1 · 432.8KB
+    ~/Library/Caches/Homebrew/little-cms2_bottle_manifest--2.19.1-1 · 67KB
+    ~/Library/Caches/Homebrew/llhttp--9.4.3 · 38.3KB
+    ~/Library/Caches/Homebrew/llhttp_bottle_manifest--9.4.3 · 16.9KB
+    ~/Library/Caches/Homebrew/merve--1.2.2_2 · 33KB
+    ~/Library/Caches/Homebrew/merve_bottle_manifest--1.2.2_2 · 32.2KB
+    ~/Library/Caches/Homebrew/mole--1.53.0 · 4MB
+    ~/Library/Caches/Homebrew/mole_bottle_manifest--1.53.0-1 (11.4KB)Warning: Skipping node: most recent version 26.12.0 not installed
+    ~/Library/Caches/Homebrew/mpg123--1.33.7 · 648.6KB
+    ~/Library/Caches/Homebrew/mpg123_bottle_manifest--1.33.7 · 18.4KB
+    ~/Library/Caches/Homebrew/nbytes--0.1.4 · 13.3KB
+    ~/Library/Caches/Homebrew/nbytes_bottle_manifest--0.1.4 · 7.3KB
+    ~/Library/Caches/Homebrew/nettle--4.0 · 990.8KB
+    ~/Library/Caches/Homebrew/nettle_bottle_manifest--4.0 · 9.4KB
+    ~/Library/Caches/Homebrew/node--26.8.2 · 19.8MB
+    ~/Library/Caches/Homebrew/node_bottle_manifest--26.8.2 · 176.9KB
+    ~/Library/Caches/Homebrew/nspr--4.40 · 330.9KB
+    ~/Library/Caches/Homebrew/nspr_bottle_manifest--4.40 · 17.4KB
+    ~/Library/Caches/Homebrew/nss--3.129 · 6.2MB
+    ~/Library/Caches/Homebrew/nss_bottle_manifest--3.129 · 41.6KB
+    ~/Library/Caches/Homebrew/openssl@3--3.6.4 · 11.0MB
+    ~/Library/Caches/Homebrew/openssl@3_bottle_manifest--3.6.4 · 24KB
+    ~/Library/Caches/Homebrew/p11-kit--0.26.5 · 993.7KB
+    ~/Library/Caches/Homebrew/p11-kit_bottle_manifest--0.26.5 · 35.0KB
+    ~/Library/Caches/Homebrew/pango--1.58.2 · 900.5KB
+    ~/Library/Caches/Homebrew/pango_bottle_manifest--1.58.2 · 220.7KB
+    ~/Library/Caches/Homebrew/pcre2--10.48 · 2.5MB
+    ~/Library/Caches/Homebrew/pcre2_bottle_manifest--10.48 · 21.2KB
+    ~/Library/Caches/Homebrew/pinentry--1.3.3 · 135KB
+    ~/Library/Caches/Homebrew/pinentry_bottle_manifest--1.3.3 · 18.5KB
+    ~/Library/Caches/Homebrew/poppler--26.09.0 · 9.9MB
+    ~/Library/Caches/Homebrew/poppler_bottle_manifest--26.09.0 · 379.9KB
+    ~/Library/Caches/Homebrew/pycparser--3.0 · 103.8KB
+    ~/Library/Caches/Homebrew/pycparser_bottle_manifest--3.0 · 2.0KB
+    ~/Library/Caches/Homebrew/python@3.14--3.14.7 · 19.2MB
+    ~/Library/Caches/Homebrew/python@3.14_bottle_manifest--3.14.7 · 128.4KB
+    ~/Library/Caches/Homebrew/ripgrep--15.2.0 · 2.1MB
+    ~/Library/Caches/Homebrew/ripgrep_bottle_manifest--15.2.0 · 25.0KB
+    ~/Library/Caches/Homebrew/rtk--0.49.0 · 3.4MB
+    ~/Library/Caches/Homebrew/rtk_bottle_manifest--0.49.0 · 12.7KB
+    ~/Library/Caches/Homebrew/sdl2-compat--2.32.72 · 638KB
+    ~/Library/Caches/Homebrew/sdl2-compat_bottle_manifest--2.32.72 · 118.5KB
+    ~/Library/Caches/Homebrew/sdl3--3.4.16 · 1.6MB
+    ~/Library/Caches/Homebrew/sdl3_bottle_manifest--3.4.16 · 111KB
+    ~/Library/Caches/Homebrew/simdjson--4.6.11 · 1.5MB
+    ~/Library/Caches/Homebrew/simdjson_bottle_manifest--4.6.11 · 16.2KB
+    ~/Library/Caches/Homebrew/simdutf--9.1.2 · 395.9KB
+    ~/Library/Caches/Homebrew/simdutf_bottle_manifest--9.1.2 · 19.6KB
+    ~/Library/Caches/Homebrew/sqlite--3.53.4 · 2.5MB
+    ~/Library/Caches/Homebrew/sqlite_bottle_manifest--3.53.4 · 32.0KB
+    ~/Library/Caches/Homebrew/summarize--0.21.13 · 25.6MB
+    ~/Library/Caches/Homebrew/summarize_bottle_manifest--0.21.13 · 399.7KB
+    ~/Library/Caches/Homebrew/svt-av1--4.2.0 · 1.4MB
+    ~/Library/Caches/Homebrew/svt-av1_bottle_manifest--4.2.0 · 15KB
+    ~/Library/Caches/Homebrew/tesseract--5.5.3 · 13.2MB
+    ~/Library/Caches/Homebrew/tesseract_bottle_manifest--5.5.3 · 269.4KB
+    ~/Library/Caches/Homebrew/topgrade--17.10.1 · 2.6MB
+    ~/Library/Caches/Homebrew/topgrade_bottle_manifest--17.10.1 · 13.0KB
+    ~/Library/Caches/Homebrew/uv--0.12.13 · 18.5MB
+    ~/Library/Caches/Homebrew/uv_bottle_manifest--0.12.13 · 19.1KB
+    ~/Library/Caches/Homebrew/webp--1.6.0 · 901.9KB
+    ~/Library/Caches/Homebrew/webp_bottle_manifest--1.6.0 · 19.5KB
+    ~/Library/Caches/Homebrew/x265--4.3 · 5.3MB
+    ~/Library/Caches/Homebrew/x265_bottle_manifest--4.3 · 18.7KB
+    ~/Library/Caches/Homebrew/yt-dlp--2026.8.19_1 · 8.1MB
+    ~/Library/Caches/Homebrew/yt-dlp_bottle_manifest--2026.8.19_1-2 · 153.6KB
+    ~/Library/Caches/Homebrew/unbound_bottle_manifest--1.25.2 · 44.8KB
+    ~/Library/Caches/Homebrew/descriptions.json · 503KB
+    ~/Library/Caches/Homebrew/gifgrep--0.3.0.tar.gz · 3.3MB
+    ~/Library/Caches/Homebrew/cask_descriptions.json · 475.5KB
+    ~/Library/Caches/Homebrew/numpy_bottle_manifest--2.5.1 · 18.4KB
+    ~/Library/Caches/Homebrew/gcc_bottle_manifest--16.1.0-2 · 24.7KB
+    ~/Library/Caches/Homebrew/openblas_bottle_manifest--0.3.34 · 72KB
+    ~/Library/Caches/Homebrew/fzf_bottle_manifest--0.74.1 · 16.8KB
+    ~/Library/Caches/Homebrew/external_commands_list.txt · 1B
+    ~/Library/Caches/Homebrew/linkage.json · 140.6KB
+    ~/Library/Caches/Homebrew/remindctl--0.2.0.zip · 476.4KB
+    ~/Library/Caches/Homebrew/isl_bottle_manifest--0.28 · 10.6KB
+    ~/Library/Caches/Homebrew/imsg--0.8.2.zip · 2.3MB
+    ~/Library/Caches/Homebrew/openai-whisper_bottle_manifest--20250625_5 · 59.3KB
+    ~/Library/Caches/Homebrew/protobuf_bottle_manifest--35.1 · 10.7KB
+    ~/Library/Caches/Homebrew/libevent--2.1.13 · 723.6KB
+    ~/Library/Caches/Homebrew/all_commands_list.txt · 1KB
+    ~/Library/Caches/Homebrew/pytorch_bottle_manifest--2.13.0-1 · 134.2KB
+    ~/Library/Caches/Homebrew/libomp_bottle_manifest--22.1.8 · 12.4KB
+    ~/Library/Caches/Homebrew/openblas--0.3.34 · 14MB
+    ~/Library/Caches/Homebrew/onnx_bottle_manifest--1.22.0 · 9.6KB
+    ~/Library/Caches/Homebrew/python@3.13_bottle_manifest--3.13.14_1-1 · 91.3KB
+    ~/Library/Caches/Homebrew/pybind11_bottle_manifest--3.0.4 · 2.2KB
+    ~/Library/Caches/Homebrew/isl--0.28 · 1.7MB
+    ~/Library/Caches/Homebrew/libevent_bottle_manifest--2.1.13 · 10.7KB
+    ~/Library/Caches/Homebrew/Cask/CC-Switch-v3.14.1-macOS.dmg--3.14.1.dmg · 24.5MB
+    ~/Library/Caches/Homebrew/Cask/xurl_Darwin_arm64.tar.gz--1.1.1.tar.gz · 4.9MB
+    ~/Library/Caches/Homebrew/Cask/libreoffice--26.8.0.dmg · 298.8MB
+    ~/Library/Caches/Homebrew/Cask/stats--3.0.15.dmg · 7.6MB
+    ~/Library/Caches/Homebrew/Cask/ngrok--3.39.11,dy27whJwwmb,a.zip · 11.3MB
+    ~/Library/Caches/Homebrew/Cask/ngrok-v3-3.39.8-darwin-arm64.zip--3.39.8,npvVigbewP5,a.zip · 11.0MB
+    ~/Library/Caches/Homebrew/Cask/ngrok-v3-3.39.1-darwin-arm64.zip--3.39.1,ibTLJJL6E5Z,a.zip · 10.9MB
+    ~/Library/Caches/Homebrew/Cask/cc-switch--3.20.3.dmg · 28.2MB
+    ~/Library/Caches/Homebrew/Cask/LibreOffice_26.2.4_MacOS_aarch64.dmg--26.2.4.dmg · 295MB
+    ~/Library/Caches/Homebrew/Cask/LibreOffice_26.2.3_MacOS_aarch64.dmg--26.2.3.dmg · 295MB
+    ~/Library/Caches/Homebrew/Cask/CC-Switch-v3.16.3-macOS.dmg--3.16.3.dmg · 33.2MB
+    ~/Library/Logs/Homebrew/python@3.14 · 64B
+    ~/Library/Logs/Homebrew/fontconfig · 64B
+    ~/Library/Logs/Homebrew/node · 64B
+    /opt/homebrew/Library/Homebrew/vendor/portable-ruby/4.0.3 · 34.6MB
+    /opt/homebrew/Library/Homebrew/vendor/portable-ruby/4.0.5_1 · 34.6MB
+
+➤ Apps & utilities
+  → Feishu Service Worker, would clean 566.9MB, 0 protected
+  → WeChat logs · 36 items, 219.0MB dry
+  → JianyingPro generated cache · 6 items, 2.6MB dry
+  → Podcasts streamed media · 0B dry
+  → Podcasts artwork cache · 456 items, 11.0MB dry
+  → Podcasts image cache · 29 items, 1.0MB dry
+  → Podcasts download temp · 105 items, 1.0MB dry
+  → QQ Music streaming cache · 141 items, 134.9MB dry
+  → QQ Music logs · 14 items, 17.2MB dry
+  → QQ Music cache · 2 items, 2.5MB dry
+  → QQ Music temp files · 7 items, 322KB dry
+  → Steam app cache · 4 items, 46.4MB dry
+  → Steam logs · 34 items, 343KB dry
+  → Zsh completion cache · 2 items, 168KB dry
+  → Ghostty cache · 4KB dry
+  → Input Source Pro cache · 2 items, 713KB dry
+  → WeType dict update cache · 181.1MB dry
+
+➤ Virtualization
+  ✓ Nothing to clean
+
+➤ Application Support
+  → Application Support logs/caches · at least 986.7MB dry
+
+➤ App leftovers
+  → Orphaned Caches: com.github.wasilibs · 2.6MB dry
+  → Orphaned Caches: com.mitchellh.ghostty · 4KB dry
+  → Orphaned Caches: com.oray.sunlogin.macclient · 4.6MB dry
+  → Orphaned Caches: com.qoder.ide.ShipIt · 16KB dry
+  → Orphaned Caches: io.sentry · 12KB dry
+  → Would clean 9 items, about 16.2MB
+
+➤ Apple Silicon updates
+  ✓ Nothing to clean
+
+➤ Device backups & firmware
+  ✓ Nothing to clean
+
+➤ Time Machine
+  ✓ Nothing to clean
+
+➤ Large files
+  ⊙ Docker Desktop data · 27.84GB · ~/Library/Containers/com.docker.docker/Data
+
+➤ Project artifacts
+  ✓ Nothing to clean
+
+
+======================================================================
+Dry run complete - no changes made
+Potential space: 46.83GB+ | Items: 1681 | Categories: 7
+Detailed file list: /Users/example/.config/mole/clean-list.txt
+Use mo clean --whitelist to add protection rules
+======================================================================
+
